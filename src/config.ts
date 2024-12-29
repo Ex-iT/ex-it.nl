@@ -1,71 +1,70 @@
 export const siteConfig: SiteConfig = {
-    title: "Hi! Jazee",
-    language: "zh",
-    description: "Jazee's personal blog. Powered by Astro Blog Theme Blur.",
-    keywords: "Jazee, blog, personal blog, Astro, Astro Blog Theme Blur",
-    author: "Jazee",
-    avatar: "/avatar.png",
-    favicon: "/favicon.png",
-    site: "https://jaze.top",
-
-    page_size: 10,
+  title: "Ex-iT's Notes",
+  language: 'en',
+  description: "Ex-iT's notes",
+  keywords:
+    'Ex-iT, blog, CTF, HackTheBox, TryHackMe, security, programming, development',
+  author: 'Ex-iT',
+  avatar: '/me.png',
+  favicon: '/favicon.ico',
+  site: 'https://ex-it.nl',
+  page_size: 10,
 }
 
 export const navBarConfig: NavBarConfig = {
-    links: [
-        {
-            name: 'Projects',
-            url: '/projects'
-        },
-        {
-            name: 'Links',
-            url: '/links'
-        },
-        {
-            name: 'About',
-            url: '/about'
-        }
-    ]
+  links: [
+    {
+      name: 'Projects',
+      url: '/projects',
+    },
+    {
+      name: 'About',
+      url: '/about',
+    },
+  ],
 }
 
 export const socialLinks: SocialLink[] = [
-    // https://icon-sets.iconify.design/material-symbols/
-    {
-        label: 'GitHub',
-        icon: 'mdi-github',
-        url: 'https://github.com/Jazee6'
-    },
-    {
-        label: 'Email',
-        icon: 'material-symbols:mail-rounded',
-        url: 'mailto:jazee@jaze.top'
-    }
+  // https://icon-sets.iconify.design/material-symbols/
+  {
+    label: 'GitHub',
+    icon: 'mdi-github',
+    url: 'https://github.com/Ex-iT/',
+  },
+  {
+    label: 'Stack Overflow',
+    icon: 'stack-overflow-icon-logo',
+    url: 'https://stackoverflow.com/users/3351720/ex-it',
+  },
+  {
+    label: 'Steam',
+    icon: 'steam-icon-logo',
+    url: 'https://steamcommunity.com/id/ex-it/',
+  },
 ]
 
 interface SiteConfig {
-    title: string
-    language: string
-    description: string
-    keywords: string
-    author: string
-    avatar: string
-    favicon: string
-    site: string
-
-    page_size: number
-    twikoo_uri?: string     // https://twikoo.js.org/
+  title: string
+  language: string
+  description: string
+  keywords: string
+  author: string
+  avatar: string
+  favicon: string
+  site: string
+  page_size: number
 }
 
 interface NavBarConfig {
-    links: {
-        name: string
-        url: string
-        target?: string
-    }[]
+  links: {
+    name: string
+    url: string
+    target?: string
+  }[]
 }
 
 interface SocialLink {
-    label: string
-    icon: string
-    url: string
+  label: string
+  icon: string
+  url: string
 }

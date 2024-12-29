@@ -1,17 +1,23 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro";
-import {getEntry} from 'astro:content';
-import {getDesc, getTitle} from "../utils";
-import {render} from 'astro:content';
-import type {CollectionEntry} from 'astro:content';
-
-const about = await getEntry('pages', 'about') as CollectionEntry<'pages'>;
-const {data} = about;
-const {Content} = await render(about);
+import PageLayout from '../layouts/PageLayout.astro'
+import { version } from '../../package.json'
+import { getDesc, getTitle } from '../utils'
 ---
-<PageLayout title={getTitle('About')} description={getDesc('The About Page')}>
-    <article class="base-card article" data-pagefind-body>
-        <h1>{data.title}</h1>
-        <Content/>
-    </article>
+
+<PageLayout
+  title={getTitle('About')}
+  description={getDesc("About Ex-iT's Notes")}
+>
+  <article class="base-card article" data-pagefind-body>
+    <h1>About</h1>
+    <h2>Attribution</h2>
+    <ul>
+      <li>
+        Theme <a href="https://github.com/Jazee6/astro-blur" target="_blank"
+          >Astro Blur</a
+        >
+        {version}
+      </li>
+    </ul>
+  </article>
 </PageLayout>

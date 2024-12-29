@@ -1,17 +1,20 @@
 ---
-import {version} from "../../package.json";
-import {siteConfig} from "../config";
-const date = new Date();
+import { Icon } from 'astro-icon/components'
+import { siteConfig } from '../config'
+const date = new Date()
 ---
 
 <footer class="mt-auto bg-base transition-all h-16 shrink-0 py-2">
-    <div class="container-global text-secondary text-sm flex flex-col justify-center h-full">
-        <div>&copy; {date.getFullYear()} {siteConfig.author}</div>
-        <div>
-            Powered by <a class="text-primary hover:text-secondary hover:underline transition-all"
-                          href="https://github.com/Jazee6/astro-blur"
-                          target="_blank">Astro
-            Blur</a> {version}
-        </div>
-    </div>
+  <p
+    class="container-global text-secondary text-sm text-right flex items-center justify-end h-full"
+  >
+    <a href="/" class="flex gap-2 items-center mr-2">
+      <Icon
+        class="w-4 h-4 text-highlight"
+        name="material-symbols:exit-to-app-sharp"
+      />
+      {siteConfig.title}
+    </a>
+    &copy; {date.getFullYear()}
+  </p>
 </footer>

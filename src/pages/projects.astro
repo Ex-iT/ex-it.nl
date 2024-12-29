@@ -1,22 +1,41 @@
 ---
-import PageLayout from "../layouts/PageLayout.astro";
-import {getDesc, getTitle} from "../utils";
-import {getCollection} from "astro:content";
-import {Icon} from 'astro-icon/components'
+import { Icon } from 'astro-icon/components'
+import PageLayout from '../layouts/PageLayout.astro'
+import { getDesc, getTitle } from '../utils'
+import { getCollection } from 'astro:content'
 
-const links = await getCollection("projects");
-const data = links.map(({data}) => data);
+const projects = await getCollection('projects')
+const data = projects.map(({ data }) => data)
 ---
-<PageLayout title={getTitle('Projects')} description={getDesc('The Projects Page')}>
-    <ul data-pagefind-body>
-        {data.map(({title, repo, description}) => (
-                <li>
-                    <a href={repo} target="_blank" class="flex items-baseline p-4 card mb-4">
-                        <h2 class="font-bold text-xl text-nowrap">{title}</h2>
-                        <p class="ml-4 max-sm:hidden">{description}</p>
-                        <Icon class="ml-auto w-7 h-7 self-end shrink-0" name="material-symbols:open-in-new"/>
-                    </a>
-                </li>
-        ))}
-    </ul>
+
+<PageLayout
+  title={getTitle('Projects')}
+  description={getDesc('Personal projects')}
+>
+  <ul
+    data-pagefind-body
+    class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
+  >
+    {
+      data.map(({ title, description, url, avatar }) => (
+        <li>
+          <a href={url} target="_blank" class="flex h-32 gap-4 card p-2">
+            <img src={avatar} alt={title} class="h-20 rounded-full" />
+            <div>
+              <h2 class="flex gap-2 font-bold text-xl">
+                <span class="line-clamp-1 break-all">{title}</span>
+                <Icon
+                  class="flex-shrink-0 w-5 h-5 self-center ml-auto mr-0"
+                  name="material-symbols:open-in-new"
+                />
+              </h2>
+              <p title={description} class="line-clamp-3">
+                {description}
+              </p>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
 </PageLayout>

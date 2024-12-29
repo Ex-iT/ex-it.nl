@@ -1,0 +1,4 @@
+Contact: https://github.com/Ex-iT/ex-it.nl/issues
+Expires: 2030-03-31T22:00:00.000Z
+Acknowledgments: ♥
+Preferred-Languages: en, nl
