@@ -1,23 +1,16 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro'
-import { version } from '../../package.json'
-import { getDesc, getTitle } from '../utils'
+import getTitle from '../utils/getTitle'
 ---
 
-<PageLayout
-  title={getTitle('About')}
-  description={getDesc("About Ex-iT's Notes")}
->
-  <article class="base-card article" data-pagefind-body>
+<PageLayout title={getTitle('About')} description="About Ex-iT's Notes">
+  <article class="article base-card article" data-pagefind-body>
     <h1>About</h1>
-    <h2>Attribution</h2>
-    <ul>
-      <li>
-        Theme <a href="https://github.com/Jazee6/astro-blur" target="_blank"
-          >Astro Blur</a
-        >
-        {version}
-      </li>
-    </ul>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam animi,
+      nam numquam perferendis dicta cumque neque consequatur sunt! Quos earum
+      odit odio rem maxime voluptatum atque sint! Consectetur, nulla
+      perferendis.
+    </p>
   </article>
 </PageLayout>

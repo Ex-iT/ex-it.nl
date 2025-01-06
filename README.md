@@ -22,3 +22,8 @@ Run code linters:
 ```bash
 pnpm lint
 ```
+
+## Attribution
+
+- Icons: [Material Symbols by Google](https://icon-sets.iconify.design/material-symbols/)
+- Astro template / theme [Astro Blur](https://github.com/Jazee6/astro-blur)

@@ -55,12 +55,15 @@ import { Icon } from 'astro-icon/components'
       </nav>
     </div>
     <button id="search" class="ml-4 icon-button">
+      <span class="sr-only">Search</span>
       <Icon
         class="block w-6 h-6 m-auto"
         name="material-symbols:search-rounded"
       />
     </button>
-    <button id="theme" class="ml-2 max-sm:ml-4 icon-button"></button>
+    <button id="theme" class="ml-2 max-sm:ml-4 icon-button">
+      <span class="sr-only">Toggle theme</span>
+    </button>
   </div>
 </header>
 

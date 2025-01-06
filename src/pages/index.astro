@@ -1,0 +1,25 @@
+---
+import { Icon } from 'astro-icon/components'
+import { siteConfig } from '../config'
+import MainLayout from '../layouts/MainLayout.astro'
+---
+
+<MainLayout>
+  <article class="article base-card grow">
+    <div class="flex items-center">
+      <Icon
+        class="w-8 h-8 mr-2 text-highlight"
+        name="material-symbols:exit-to-app-sharp"
+      />
+      <h1 class="not-prose font-bold text-2xl text-white w-auto">
+        {siteConfig.title}
+      </h1>
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam animi,
+      nam numquam perferendis dicta cumque neque consequatur sunt! Quos earum
+      odit odio rem maxime voluptatum atque sint! Consectetur, nulla
+      perferendis.
+    </p>
+  </article>
+</MainLayout>

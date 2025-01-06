@@ -12,7 +12,9 @@ interface Props {
 }
 
 const {
-  title = `${siteConfig.description} | ${siteConfig.title}`,
+  title = [siteConfig.description, siteConfig.title]
+    .filter(Boolean)
+    .join(' | '),
   description = siteConfig.description,
   image = siteConfig.avatar,
 } = Astro.props

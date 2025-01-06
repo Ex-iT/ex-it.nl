@@ -1,7 +1,7 @@
 {
   "name": "ex-it.nl",
   "type": "module",
-  "version": "0.4.0",
+  "version": "0.1.0",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
@@ -10,7 +10,7 @@
     "postbuild": "pagefind --site dist",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "pnpm run lint:prettier && pnpm run lint:typescript",
+    "lint": "astro check && pnpm run lint:prettier && pnpm run lint:typescript",
     "lint:prettier": "prettier --check .",
     "lint:typescript": "tsc --noEmit"
   },
@@ -22,7 +22,7 @@
     "@astrojs/tailwind": "^5.1.4",
     "@iconify-json/material-symbols": "^1.2.12",
     "astro": "^5.1.1",
-    "astro-icon": "^1.1.4",
+    "astro-icon": "^1.1.5",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   },

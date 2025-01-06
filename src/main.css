@@ -45,6 +45,16 @@
   a:hover {
     @apply hover:text-secondary transition-all;
   }
+
+  h1::first-letter,
+  h2::first-letter,
+  h3::first-letter,
+  .highlight-first-letter::first-letter {
+    @apply text-highlight;
+  }
+}
+
+@layer components {
 }
 
 @layer utilities {
@@ -83,11 +93,16 @@
   }
 }
 
+/* Add language label to code blocks */
 pre.astro-code[data-language] {
   @apply relative;
 }
 
 pre.astro-code[data-language]::after {
-  @apply rounded bg-back/30 text-sm top-1 right-1 absolute py-1 px-2;
+  @apply rounded bg-back/30 text-sm top-1 right-1 absolute py-1 px-2 transition-all;
   content: attr(data-language);
+}
+
+pre.astro-code[data-language]:hover::after {
+  @apply opacity-0 transition-all;
 }

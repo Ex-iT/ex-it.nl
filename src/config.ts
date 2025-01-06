@@ -1,18 +1,24 @@
 export const siteConfig: SiteConfig = {
   title: "Ex-iT's Notes",
   language: 'en',
-  description: "Ex-iT's notes",
+  description: "Ex-iT's notes on CTF's, cyber security, and development.",
   keywords:
     'Ex-iT, blog, CTF, HackTheBox, TryHackMe, security, programming, development',
   author: 'Ex-iT',
   avatar: '/me.png',
   favicon: '/favicon.ico',
   site: 'https://ex-it.nl',
-  page_size: 10,
+  pageSize: 10,
+  filesContentUrl:
+    'https://api.github.com/repos/Ex-iT/ex-it.nl/contents/src/content',
 }
 
 export const navBarConfig: NavBarConfig = {
   links: [
+    {
+      name: 'Notes',
+      url: '/notes',
+    },
     {
       name: 'Projects',
       url: '/projects',
@@ -25,7 +31,6 @@ export const navBarConfig: NavBarConfig = {
 }
 
 export const socialLinks: SocialLink[] = [
-  // https://icon-sets.iconify.design/material-symbols/
   {
     label: 'GitHub',
     icon: 'mdi-github',
@@ -45,14 +50,15 @@ export const socialLinks: SocialLink[] = [
 
 interface SiteConfig {
   title: string
-  language: string
+  language: Intl.LocalesArgument
   description: string
   keywords: string
   author: string
   avatar: string
   favicon: string
   site: string
-  page_size: number
+  pageSize: number
+  filesContentUrl: string
 }
 
 interface NavBarConfig {

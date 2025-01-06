@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import type { Page } from 'astro'
+import { siteConfig } from '../../../config'
+import Overview from '../../../components/Notes/Overview.astro'
+
+export async function getStaticPaths({ paginate }) {
+  const notes = (
+    await getCollection('notes', ({ data }) => {
+      return import.meta.env.PROD ? data.isDraft !== true : true
+    })
+  ).sort((a, z) => z.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+
+  const tags = [...new Set(notes.flatMap((note) => note.data.tag))]
+
+  return [
+    ...paginate(notes, {
+      pageSize: siteConfig.pageSize,
+      props: { tags },
+    }),
+
+    ...tags.flatMap((tag) => {
+      if (!tag) return []
+      return paginate(
+        notes.filter((note) => note.data.tag === tag),
+        {
+          params: { filter: tag },
+          pageSize: siteConfig.pageSize,
+          props: { tags, tag },
+        }
+      )
+    }),
+  ]
+}
+
+const { page, tags, tag } = Astro.props as {
+  page: Page<CollectionEntry<'notes'>>
+  tags: CollectionEntry<'notes'>['data']['tag'][]
+  tag: CollectionEntry<'notes'>['data']['tag']
+}
+---
+
+<Overview notes={page.data} {tags} {tag} {page} />

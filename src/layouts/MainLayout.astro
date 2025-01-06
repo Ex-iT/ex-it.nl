@@ -2,7 +2,7 @@
 import { siteConfig, socialLinks } from '../config'
 import { Icon } from 'astro-icon/components'
 import BaseLayout from './BaseLayout.astro'
-import { getTitle, getDesc } from '../utils'
+import getTitle from '../utils/getTitle'
 
 interface Props {
   title?: string
@@ -15,7 +15,7 @@ const { title, description, image } = Astro.props
 
 <BaseLayout
   title={getTitle(title ?? '')}
-  description={getDesc(description ?? '')}
+  description={description ?? ''}
   image={image}
 >
   <main class="mt-20 mb-4">

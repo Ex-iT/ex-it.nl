@@ -1,0 +1,57 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro'
+import getTitle from '../../utils/getTitle'
+import Pagination from '../Pagination.astro'
+import type { CollectionEntry } from 'astro:content'
+import type { Page } from 'astro'
+import LinkedCard from '../Card/LinkedCard.astro'
+import formatDate from '../../utils/formatDate'
+
+interface Props {
+  notes: CollectionEntry<'notes'>[]
+  page: Page<CollectionEntry<'notes'>>
+  tags: CollectionEntry<'notes'>['data']['tag'][]
+  tag: CollectionEntry<'notes'>['data']['tag']
+}
+
+const { notes, page, tag } = Astro.props
+---
+
+<PageLayout title={getTitle('All Notes')} description="All Notes">
+  <div class="grow">
+    <ul class="space-y-4">
+      {
+        notes.map((note) => (
+          <li>
+            <LinkedCard
+              url={`/notes/${note.id}`}
+              img={note.data.image}
+              imgAlt={note.data.title}
+              title={note.data.title}
+            >
+              <p class="line-clamp-2 mb-2"> {note.data.description} </p>
+              <div class="mt-auto flex">
+                <time
+                  class="ml-auto"
+                  datetime={note.data.pubDate.toISOString()}
+                >
+                  {formatDate(note.data.pubDate)}
+                </time>
+              </div>
+            </LinkedCard>
+          </li>
+        ))
+      }
+    </ul>
+    <Pagination page={page} {tag} />
+  </div>
+</PageLayout>
+
+<style>
+  .foo {
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+    display: inline-block;
+  }
+</style>

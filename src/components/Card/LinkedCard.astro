@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  url?: string
+  target?: string
+  img?: string
+  imgAlt?: string
+  title?: string
+}
+
+const { url = '#', target = null, img, imgAlt = '', title = null } = Astro.props
+---
+
+<a href={url} target={target} class="flex min-h-32 gap-4 card p-4">
+  {
+    img ? (
+      <img src={img} alt={imgAlt} class="h-20 rounded-full flex-1" />
+    ) : (
+      <Icon
+        class="h-20 w-auto text-neutral-600"
+        name="material-symbols:exit-to-app-sharp"
+      />
+    )
+  }
+  <div class="flex flex-col w-full">
+    <slot name="title">
+      <h2 class="flex gap-2 font-bold text-xl mb-1">
+        <span class="highlight-first-letter line-clamp-1 break-all">
+          {title}
+        </span>
+        {
+          target?.includes('_blank') ? (
+            <Icon
+              class="flex-shrink-0 w-5 h-5 self-center ml-auto mr-0"
+              name="material-symbols:open-in-new"
+            />
+          ) : null
+        }
+      </h2>
+    </slot>
+    <slot />
+  </div>
+</a>

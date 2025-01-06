@@ -1,0 +1,84 @@
+---
+import getTitle from '../../utils/getTitle'
+import fetchFileList from '../../utils/fetchFileList'
+import formatDate from '../../utils/formatDate'
+import Badge from '../../components/Badge.astro'
+import { render } from 'astro:content'
+import type { CollectionEntry } from 'astro:content'
+import PageLayout from '../../layouts/PageLayout.astro'
+
+// @TODO: handle errors
+const fileList = await fetchFileList('posts', '')
+const files = await fileList.json()
+
+interface Props {
+  note: CollectionEntry<'notes'>
+}
+
+const { note } = Astro.props
+const { data } = note
+const { Content } = await render(note)
+---
+
+<PageLayout title={getTitle(data.title)} description={data.description}>
+  <div class="flex items-start">
+    <aside
+      class="basis-[16rem] shrink-0 max-md:hidden sticky top-20 mr-4 bg-base transition-all rounded-xl p-2"
+    >
+      <ul>
+        {
+          // @TODO: Extract to its own component
+          files.map((file) => (
+            <li>
+              <a class="px-2 menu-item" href={file.html_url}>
+                {file.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </aside>
+
+    <article class="article base-card grow" data-pagefind-body>
+      <h1 id={data.title}>{data.title}</h1>
+
+      <!-- @TODO: Move tags to its own component and add styling -->
+      <a href={`/notes/${data.tag}`}>{data.tag}</a>:::{data.tags?.join(', ')}
+
+      <div class="flex space-x-4 not-prose">
+        <Badge icon="material-symbols:edit-calendar-rounded">
+          <time datetime={data.pubDate.toISOString()}>
+            {formatDate(data.pubDate)}
+          </time>
+        </Badge>
+      </div>
+
+      <Content />
+    </article>
+  </div>
+</PageLayout>
+
+<script>
+  // @TODO: Remove this when the TOC is removed too (in favor of the files listing)
+  // @TODO: Make sure to check if the debounce util is being used
+  // import debounce from '../../utils/debounce'
+
+  // const links = document.querySelectorAll('.menu-item')
+  // const handler = debounce(() => {
+  //   for (const link of links) {
+  //     const href = link.getAttribute('href') as string
+  //     const target = document.querySelector(`[id="${href.slice(1)}"]`)
+  //     if (target) {
+  //       const offsetTop =
+  //         target.getBoundingClientRect().top - document.body.clientHeight / 3
+  //       if (offsetTop <= 0) {
+  //         links.forEach((link) => link.classList.remove('bg-hover'))
+  //         link.classList.add('bg-hover')
+  //         history.replaceState(null, '', href)
+  //       }
+  //     }
+  //   }
+  // })
+  // document.addEventListener('scroll', handler)
+  // document.addEventListener('DOMContentLoaded', handler)
+</script>

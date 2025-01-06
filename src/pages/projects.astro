@@ -1,41 +1,53 @@
 ---
-import { Icon } from 'astro-icon/components'
+import LinkedCard from '../components/Card/LinkedCard.astro'
 import PageLayout from '../layouts/PageLayout.astro'
-import { getDesc, getTitle } from '../utils'
+import getTitle from '../utils/getTitle'
 import { getCollection } from 'astro:content'
 
 const projects = await getCollection('projects')
 const data = projects.map(({ data }) => data)
 ---
 
-<PageLayout
-  title={getTitle('Projects')}
-  description={getDesc('Personal projects')}
->
-  <ul
-    data-pagefind-body
-    class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
-  >
-    {
-      data.map(({ title, description, url, avatar }) => (
-        <li>
-          <a href={url} target="_blank" class="flex h-32 gap-4 card p-2">
-            <img src={avatar} alt={title} class="h-20 rounded-full" />
-            <div>
-              <h2 class="flex gap-2 font-bold text-xl">
-                <span class="line-clamp-1 break-all">{title}</span>
-                <Icon
-                  class="flex-shrink-0 w-5 h-5 self-center ml-auto mr-0"
-                  name="material-symbols:open-in-new"
-                />
-              </h2>
+<PageLayout title={getTitle('Projects')} description="Personal projects">
+  <section class="section">
+    <ul
+      data-pagefind-body
+      class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
+    >
+      {
+        data.map(({ title, description, url, avatar }) => (
+          <li>
+            <LinkedCard
+              {url}
+              img={avatar}
+              imgAlt={title}
+              title={title}
+              target="_blank"
+            >
               <p title={description} class="line-clamp-3">
                 {description}
               </p>
-            </div>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+            </LinkedCard>
+            {/* <a href={url} target="_blank" class="flex min-h-32 gap-4 card p-4">
+              <img src={avatar} alt={title} class="h-20 rounded-full" />
+              <div class="w-full">
+                <h2 class="flex gap-2 font-bold text-xl mb-1">
+                  <span class="highlight-first-letter line-clamp-1 break-all">
+                    {title}
+                  </span>
+                  <Icon
+                    class="flex-shrink-0 w-5 h-5 self-center ml-auto mr-0"
+                    name="material-symbols:open-in-new"
+                  />
+                </h2>
+                <p title={description} class="line-clamp-3">
+                  {description}
+                </p>
+              </div>
+            </a> */}
+          </li>
+        ))
+      }
+    </ul>
+  </section>
 </PageLayout>
