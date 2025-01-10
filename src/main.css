@@ -20,14 +20,6 @@
     @apply flex flex-col text-primary bg-back transition-all;
   }
 
-  ::selection {
-    @apply bg-highlight;
-  }
-
-  .dark ::selection {
-    @apply bg-highlight text-slate-900;
-  }
-
   .light {
     --color-base: 255 255 255;
     --color-back: 245 245 245;
@@ -46,6 +38,10 @@
     --color-hover: 82 82 82;
     --color-active: 64 64 64;
     --color-highlight: var(--color-ex-it);
+  }
+
+  ::selection {
+    @apply bg-highlight text-base;
   }
 }
 
