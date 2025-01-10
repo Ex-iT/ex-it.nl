@@ -58,12 +58,9 @@
 }
 
 @layer utilities {
+  /* @TODO: Extract these to components where possible */
   .container-global {
     @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
-  }
-
-  .menu-item {
-    @apply cursor-pointer hover:bg-hover transition-all rounded-lg py-1 line-clamp-1 active:bg-active;
   }
 
   .base-card {
@@ -77,15 +74,11 @@
   }
 
   .blur-global {
-    @apply backdrop-blur-[20px] backdrop-saturate-[180%];
+    @apply backdrop-blur-lg backdrop-saturate-150;
   }
 
   .card {
     @apply bg-base rounded-xl hover:ring ring-primary transition-all;
-  }
-
-  .icon-button {
-    @apply w-8 h-8 hover:bg-hover transition-all rounded-full;
   }
 
   .badge {

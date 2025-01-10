@@ -1,6 +1,7 @@
 export const siteConfig: SiteConfig = {
   title: "Ex-iT's Notes",
   language: 'en',
+  direction: 'ltr',
   description: "Ex-iT's notes on CTF's, cyber security, and development.",
   keywords:
     'Ex-iT, blog, CTF, HackTheBox, TryHackMe, security, programming, development',
@@ -51,6 +52,7 @@ export const socialLinks: SocialLink[] = [
 interface SiteConfig {
   title: string
   language: Intl.LocalesArgument
+  direction: 'ltr' | 'rtl'
   description: string
   keywords: string
   author: string

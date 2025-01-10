@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import fetchFileList from '../../utils/fetchFileList.ts'
+import type { File } from '../../utils/fetchFileList.ts'
+
+let files: File[] = []
+const fileListResponse = await fetchFileList('data', 'some-notes')
+if (fileListResponse && fileListResponse.status === 200) {
+  files = (await fileListResponse.json()) ?? []
+}
+
+interface Props {
+  note: CollectionEntry<'notes'>
+}
+---
+
+<ul>
+  {
+    files.map((file) => (
+      <li>
+        <a
+          class="px-2 hover:underline transition-all py-1 line-clamp-1"
+          href={file.html_url}
+          target="_blank"
+        >
+          <Icon
+            class="w-4 h-4 inline-block mr-1"
+            name={
+              file.type === 'dir'
+                ? 'material-symbols:folder'
+                : 'material-symbols:lab-profile-outline'
+            }
+          />
+          {file.name}
+        </a>
+      </li>
+    ))
+  }
+</ul>

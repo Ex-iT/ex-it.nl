@@ -39,7 +39,7 @@ const projectSchema = z.object({
 })
 
 const projects = defineCollection({
-  loader: file('src/content/data/projects.json'),
+  loader: file('src/content/projects.json'),
   schema: projectSchema,
 })
 

@@ -12,16 +12,14 @@ interface Props {
 }
 
 const {
-  title = [siteConfig.description, siteConfig.title]
-    .filter(Boolean)
-    .join(' | '),
+  title = [siteConfig.description, siteConfig.title].join(' | '),
   description = siteConfig.description,
   image = siteConfig.avatar,
 } = Astro.props
 ---
 
 <!doctype html>
-<html lang={siteConfig.language}>
+<html lang={String(siteConfig.language)} dir={siteConfig.direction}>
   <head>
     <BaseHead title={title} description={description} image={image} />
     <script is:inline>

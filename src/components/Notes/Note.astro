@@ -1,15 +1,19 @@
 ---
+import { render } from 'astro:content'
 import getTitle from '../../utils/getTitle'
 import fetchFileList from '../../utils/fetchFileList'
+import type { File } from '../../utils/fetchFileList.ts'
 import formatDate from '../../utils/formatDate'
 import Badge from '../../components/Badge.astro'
-import { render } from 'astro:content'
 import type { CollectionEntry } from 'astro:content'
 import PageLayout from '../../layouts/PageLayout.astro'
+import { Icon } from 'astro-icon/components'
 
-// @TODO: handle errors
-const fileList = await fetchFileList('posts', '')
-const files = await fileList.json()
+let files: File[] = []
+const fileListResponse = await fetchFileList('data', 'some-notes')
+if (fileListResponse && fileListResponse.status === 200) {
+  files = (await fileListResponse.json()) ?? []
+}
 
 interface Props {
   note: CollectionEntry<'notes'>
@@ -23,14 +27,26 @@ const { Content } = await render(note)
 <PageLayout title={getTitle(data.title)} description={data.description}>
   <div class="flex items-start">
     <aside
-      class="basis-[16rem] shrink-0 max-md:hidden sticky top-20 mr-4 bg-base transition-all rounded-xl p-2"
+      class="basis-64 shrink-0 max-md:hidden sticky top-20 mr-4 bg-base transition-all rounded-xl p-2"
     >
       <ul>
         {
           // @TODO: Extract to its own component
           files.map((file) => (
             <li>
-              <a class="px-2 menu-item" href={file.html_url}>
+              <a
+                class="px-2 hover:underline transition-all py-1 line-clamp-1"
+                href={file.html_url}
+                target="_blank"
+              >
+                <Icon
+                  class="w-4 h-4 inline-block mr-1"
+                  name={
+                    file.type === 'dir'
+                      ? 'material-symbols:folder'
+                      : 'material-symbols:lab-profile-outline'
+                  }
+                />
                 {file.name}
               </a>
             </li>
