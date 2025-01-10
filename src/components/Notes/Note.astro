@@ -1,19 +1,11 @@
 ---
 import { render } from 'astro:content'
 import getTitle from '../../utils/getTitle'
-import fetchFileList from '../../utils/fetchFileList'
-import type { File } from '../../utils/fetchFileList.ts'
 import formatDate from '../../utils/formatDate'
 import Badge from '../../components/Badge.astro'
 import type { CollectionEntry } from 'astro:content'
 import PageLayout from '../../layouts/PageLayout.astro'
-import { Icon } from 'astro-icon/components'
-
-let files: File[] = []
-const fileListResponse = await fetchFileList('data', 'some-notes')
-if (fileListResponse && fileListResponse.status === 200) {
-  files = (await fileListResponse.json()) ?? []
-}
+import FileListing from './FileListing.astro'
 
 interface Props {
   note: CollectionEntry<'notes'>
@@ -29,30 +21,7 @@ const { Content } = await render(note)
     <aside
       class="basis-64 shrink-0 max-md:hidden sticky top-20 mr-4 bg-base transition-all rounded-xl p-2"
     >
-      <ul>
-        {
-          // @TODO: Extract to its own component
-          files.map((file) => (
-            <li>
-              <a
-                class="px-2 hover:underline transition-all py-1 line-clamp-1"
-                href={file.html_url}
-                target="_blank"
-              >
-                <Icon
-                  class="w-4 h-4 inline-block mr-1"
-                  name={
-                    file.type === 'dir'
-                      ? 'material-symbols:folder'
-                      : 'material-symbols:lab-profile-outline'
-                  }
-                />
-                {file.name}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+      <FileListing {note} />
     </aside>
 
     <article class="article base-card grow" data-pagefind-body>
@@ -73,28 +42,3 @@ const { Content } = await render(note)
     </article>
   </div>
 </PageLayout>
-
-<script>
-  // @TODO: Remove this when the TOC is removed too (in favor of the files listing)
-  // @TODO: Make sure to check if the debounce util is being used
-  // import debounce from '../../utils/debounce'
-
-  // const links = document.querySelectorAll('.menu-item')
-  // const handler = debounce(() => {
-  //   for (const link of links) {
-  //     const href = link.getAttribute('href') as string
-  //     const target = document.querySelector(`[id="${href.slice(1)}"]`)
-  //     if (target) {
-  //       const offsetTop =
-  //         target.getBoundingClientRect().top - document.body.clientHeight / 3
-  //       if (offsetTop <= 0) {
-  //         links.forEach((link) => link.classList.remove('bg-hover'))
-  //         link.classList.add('bg-hover')
-  //         history.replaceState(null, '', href)
-  //       }
-  //     }
-  //   }
-  // })
-  // document.addEventListener('scroll', handler)
-  // document.addEventListener('DOMContentLoaded', handler)
-</script>

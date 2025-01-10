@@ -11,7 +11,7 @@ export const siteConfig: SiteConfig = {
   site: 'https://ex-it.nl',
   pageSize: 10,
   filesContentUrl:
-    'https://api.github.com/repos/Ex-iT/ex-it.nl/contents/src/content',
+    'https://api.github.com/repos/Ex-iT/ex-it.nl/contents/src/content/notes',
 }
 
 export const navBarConfig: NavBarConfig = {
