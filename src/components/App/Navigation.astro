@@ -2,6 +2,7 @@
 import { navBarConfig } from '../../config'
 import { Icon } from 'astro-icon/components'
 import IconButton from '../Buttons/IconButton.astro'
+import Drawer from '../Drawer/Drawer.astro'
 
 const pathname = new URL(Astro.request.url).pathname
 const currentPath = pathname.slice(1) // remove the first "/"
@@ -28,31 +29,44 @@ function isActiveLink(url: string) {
   }
 </nav>
 
-<IconButton class="ml-auto hidden max-sm:flex relative group">
+<IconButton
+  id="trigger-nav-drawer"
+  class="ml-auto hidden max-sm:flex relative group"
+>
   <span class="sr-only">Menu</span>
   <Icon class="w-6 h-6 m-auto" name="material-symbols:menu-rounded" />
-  <nav
-    class="border border-neutral-500 absolute top-8 -left-full rounded-xl shadow-xl bg-base hidden group-hover:block animate-in fade-in"
-  >
-    {
-      navBarConfig.links.map((link) => {
-        return (
-          <a
-            class:list={[
-              isActiveLink(link.url) && 'font-bold underline',
-              'flex items-center px-2 py-2 first:rounded-t-xl last:rounded-b-xl hover:bg-hover transition-all',
-            ]}
-            href={link.url}
-            target={link.target}
-          >
-            {link.name}
-            {/* <Icon
-              class="w-6 h-6 ml-auto"
-              name="material-symbols:chevron-right-rounded"
-            /> */}
-          </a>
-        )
-      })
-    }
-  </nav>
 </IconButton>
+
+<Drawer id="nav-drawer">
+  <nav>
+    <ul>
+      {
+        navBarConfig.links.map((link) => {
+          return (
+            <li class="mb-4 border-b border-gray-300 dark:border-gray-700">
+              <a
+                class:list={[
+                  isActiveLink(link.url) && 'font-bold underline',
+                  'flex items-center py-2 hover:bg-hover transition-all',
+                ]}
+                href={link.url}
+                target={link.target}
+              >
+                {link.name}
+              </a>
+            </li>
+          )
+        })
+      }
+    </ul>
+  </nav>
+</Drawer>
+
+<script>
+  const drawerTrigger = document.getElementById(
+    'trigger-nav-drawer'
+  ) as HTMLButtonElement
+  const drawer = document.getElementById('nav-drawer') as HTMLDialogElement
+
+  drawerTrigger.addEventListener('click', () => drawer.showModal())
+</script>

@@ -12,7 +12,11 @@ interface Props {
 const { url = '#', target = null, img, imgAlt = '', title = null } = Astro.props
 ---
 
-<a href={url} target={target} class="flex min-h-32 gap-4 card p-4">
+<a
+  href={url}
+  target={target}
+  class="flex h-full min-h-32 gap-4 card p-4 bg-base rounded-xl hover:ring ring-primary transition-all"
+>
   {
     img ? (
       <img src={img} alt={imgAlt} class="h-20 rounded-full flex-1" />

@@ -19,32 +19,58 @@ const {
 ---
 
 <!doctype html>
-<html lang={String(siteConfig.language)} dir={siteConfig.direction}>
+<html
+  class="group"
+  lang={String(siteConfig.language)}
+  dir={siteConfig.direction}
+  data-theme="light"
+>
   <head>
     <BaseHead title={title} description={description} image={image} />
     <script is:inline>
-      const setTheme = (theme) => {
-        document.documentElement.classList.add(theme)
-      }
-
-      let theme = (() => {
+      const getTheme = () => {
         if (
           typeof localStorage !== 'undefined' &&
           localStorage.getItem('theme')
         ) {
-          return localStorage.getItem('theme')
+          return localStorage.getItem('theme') ?? 'light'
         }
         if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
           return 'dark'
         }
         return 'light'
-      })()
+      }
 
-      theme === 'light' ? setTheme('light') : setTheme('dark')
-      localStorage.setItem('theme', theme)
-    </script></head
-  >
+      const setTheme = (theme) => {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('theme', theme)
+        }
 
+        document.documentElement.classList.add(theme)
+        document.documentElement.dataset.theme = theme
+      }
+
+      const toggleTheme = () => {
+        const theme = getTheme()
+        const newTheme = theme === 'light' ? 'dark' : 'light'
+
+        newTheme === 'light'
+          ? document.documentElement.classList.replace('dark', 'light')
+          : document.documentElement.classList.replace('light', 'dark')
+
+        localStorage.setItem('theme', newTheme)
+        document.documentElement.dataset.theme = newTheme
+      }
+
+      setTheme(getTheme())
+
+      window.app = {
+        getTheme,
+        setTheme,
+        toggleTheme,
+      }
+    </script>
+  </head>
   <body>
     <Search />
     <Header />

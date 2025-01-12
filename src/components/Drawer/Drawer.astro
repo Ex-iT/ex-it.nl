@@ -1,0 +1,38 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { Icon } from 'astro-icon/components'
+
+interface Props {
+  id: string
+  open?: boolean
+  class?: string
+}
+
+const { id, open = false, class: className } = Astro.props
+---
+
+<dialog
+  {id}
+  class:list={[
+    'open:translate-x-0',
+    'bg-back mt-0 h-full max-h-full w-full max-w-full -translate-x-full transition-all duration-150 transition-discrete',
+    'starting:open:-translate-x-full',
+    'backdrop:bg-transparent ',
+    className,
+  ]}
+  {open}
+>
+  <section class="flex flex-col container-global pt-5 text-primary">
+    <slot name="close">
+      <form class="ml-auto" method="dialog">
+        <button class="w-8 h-8">
+          <Icon
+            class="w-6 h-6 hover:text-secondary hover:rotate-90 transition-all"
+            name="material-symbols:close"
+          />
+        </button>
+      </form>
+    </slot>
+    <slot />
+  </section>
+</dialog>

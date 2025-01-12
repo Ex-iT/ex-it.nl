@@ -62,7 +62,6 @@
 }
 
 @layer utilities {
-  /* @TODO: Extract these to components where possible */
   .container-global {
     @apply mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl;
   }
@@ -79,10 +78,6 @@
 
   .blur-global {
     @apply backdrop-blur-lg backdrop-saturate-150;
-  }
-
-  .card {
-    @apply bg-base rounded-xl hover:ring ring-primary transition-all;
   }
 
   .badge {
