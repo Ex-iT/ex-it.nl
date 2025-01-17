@@ -59,6 +59,6 @@ import Navigation from './Navigation.astro'
 
   const themeButton = document.querySelector('#theme')
   themeButton.addEventListener('click', () => {
-    window.app.toggleTheme()
+    setTheme(getTheme() === 'light' ? 'dark' : 'light')
   })
 </script>

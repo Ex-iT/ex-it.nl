@@ -27,7 +27,6 @@ const { Content } = await render(note)
     <article class="article base-card grow" data-pagefind-body>
       <h1 id={data.title}>{data.title}</h1>
 
-      <!-- @TODO: Move tags to its own component and add styling -->
       <a href={`/notes/${data.tag}`}>{data.tag}</a>:::{data.tags?.join(', ')}
 
       <div class="flex space-x-4 not-prose">

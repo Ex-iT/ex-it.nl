@@ -20,7 +20,7 @@ const {
 
 <!doctype html>
 <html
-  class="group"
+  class="group light"
   lang={String(siteConfig.language)}
   dir={siteConfig.direction}
   data-theme="light"
@@ -28,7 +28,7 @@ const {
   <head>
     <BaseHead title={title} description={description} image={image} />
     <script is:inline>
-      const getTheme = () => {
+      function getTheme() {
         if (
           typeof localStorage !== 'undefined' &&
           localStorage.getItem('theme')
@@ -41,34 +41,19 @@ const {
         return 'light'
       }
 
-      const setTheme = (theme) => {
+      function setTheme(theme) {
         if (typeof localStorage !== 'undefined') {
           localStorage.setItem('theme', theme)
         }
 
-        document.documentElement.classList.add(theme)
-        document.documentElement.dataset.theme = theme
-      }
-
-      const toggleTheme = () => {
-        const theme = getTheme()
-        const newTheme = theme === 'light' ? 'dark' : 'light'
-
-        newTheme === 'light'
+        theme === 'light'
           ? document.documentElement.classList.replace('dark', 'light')
           : document.documentElement.classList.replace('light', 'dark')
 
-        localStorage.setItem('theme', newTheme)
-        document.documentElement.dataset.theme = newTheme
+        document.documentElement.dataset.theme = theme
       }
 
       setTheme(getTheme())
-
-      window.app = {
-        getTheme,
-        setTheme,
-        toggleTheme,
-      }
     </script>
   </head>
   <body>
