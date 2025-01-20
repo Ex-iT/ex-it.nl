@@ -1,6 +1,6 @@
 import { siteConfig } from '../config'
 
-export default function (
+export default (
   date: Date,
   language = siteConfig.language,
   options: Intl.DateTimeFormatOptions = {
@@ -8,6 +8,4 @@ export default function (
     month: 'long',
     day: 'numeric',
   }
-) {
-  return new Date(date).toLocaleDateString(language, options)
-}
+) => new Date(date).toLocaleDateString(language, options)

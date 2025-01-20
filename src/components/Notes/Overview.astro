@@ -30,14 +30,12 @@ const { notes, page, tag } = Astro.props
               title={note.data.title}
             >
               <p class="line-clamp-2 mb-2"> {note.data.description} </p>
-              <div class="mt-auto flex">
-                <time
-                  class="ml-auto"
-                  datetime={note.data.pubDate.toISOString()}
-                >
-                  {formatDate(note.data.pubDate)}
-                </time>
-              </div>
+              <time
+                class="ml-auto mt-auto flex"
+                datetime={note.data.pubDate.toISOString()}
+              >
+                {formatDate(note.data.pubDate)}
+              </time>
             </LinkedCard>
           </li>
         ))
