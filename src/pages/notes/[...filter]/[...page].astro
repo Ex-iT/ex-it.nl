@@ -6,11 +6,10 @@ import { siteConfig } from '../../../config'
 import Overview from '../../../components/Notes/Overview.astro'
 
 export async function getStaticPaths({ paginate }) {
-  const notes = (
-    await getCollection('notes', ({ data }) => {
-      return import.meta.env.PROD ? data.isDraft !== true : true
-    })
-  ).sort((a, z) => z.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  const notes = (await getCollection('notes')).sort(
+    (a, z) =>
+      (z.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)
+  )
 
   const tags = [...new Set(notes.flatMap((note) => note.data.tag))]
 

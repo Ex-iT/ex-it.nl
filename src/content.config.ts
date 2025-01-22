@@ -1,11 +1,8 @@
 import { defineCollection, z } from 'astro:content'
 import { file, glob } from 'astro/loaders'
+import { rssSchema } from '@astrojs/rss'
 
-export const notesSchema = z.object({
-  title: z.string(),
-  description: z.string(),
-  pubDate: z.coerce.date(),
-  isDraft: z.boolean().optional(),
+export const notesSchema = rssSchema.extend({
   tag: z.string().optional(),
   tags: z.array(z.string()).optional(),
   image: z.string().optional(),

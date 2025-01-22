@@ -14,9 +14,7 @@ interface StaticPaths {
 }
 
 export async function getStaticPaths(): Promise<StaticPaths[]> {
-  const notes = await getCollection('notes', ({ data }) => {
-    return import.meta.env.PROD ? data.isDraft !== true : true
-  })
+  const notes = await getCollection('notes')
 
   const staticPaths: StaticPaths[] = notes.map((note) => ({
     params: { slug: note.id },

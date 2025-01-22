@@ -1,3 +1,31 @@
+interface SiteConfig {
+  title: string
+  language: Intl.LocalesArgument
+  direction: 'ltr' | 'rtl'
+  description: string
+  keywords: string
+  author: string
+  avatar: string
+  favicon: string
+  site: string
+  pageSize: number
+  filesContentUrl: string
+}
+
+interface NavBarConfig {
+  links: {
+    name: string
+    url: string
+    target?: string
+  }[]
+}
+
+interface SocialLink {
+  label: string
+  icon: string
+  url: string
+}
+
 export const siteConfig: SiteConfig = {
   title: "Ex-iT's Notes",
   language: 'en',
@@ -48,31 +76,3 @@ export const socialLinks: SocialLink[] = [
     url: 'https://steamcommunity.com/id/ex-it/',
   },
 ]
-
-interface SiteConfig {
-  title: string
-  language: Intl.LocalesArgument
-  direction: 'ltr' | 'rtl'
-  description: string
-  keywords: string
-  author: string
-  avatar: string
-  favicon: string
-  site: string
-  pageSize: number
-  filesContentUrl: string
-}
-
-interface NavBarConfig {
-  links: {
-    name: string
-    url: string
-    target?: string
-  }[]
-}
-
-interface SocialLink {
-  label: string
-  icon: string
-  url: string
-}

@@ -29,13 +29,17 @@ const { Content } = await render(note)
 
       <a href={`/notes/${data.tag}`}>{data.tag}</a>:::{data.tags?.join(', ')}
 
-      <div class="flex space-x-4 not-prose">
-        <Badge icon="material-symbols:edit-calendar-rounded">
-          <time datetime={data.pubDate.toISOString()}>
-            {formatDate(data.pubDate)}
-          </time>
-        </Badge>
-      </div>
+      {
+        data.pubDate && (
+          <div class="flex space-x-4 not-prose">
+            <Badge icon="material-symbols:edit-calendar-rounded">
+              <time datetime={data.pubDate.toISOString()}>
+                {formatDate(data.pubDate)}
+              </time>
+            </Badge>
+          </div>
+        )
+      }
 
       <Content />
     </article>
