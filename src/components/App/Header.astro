@@ -37,25 +37,22 @@ import Navigation from './Navigation.astro'
 
 <script is:inline>
   const searchButton = document.querySelector('#search')
-  searchButton.addEventListener('click', () => {
-    const searchContainer = document.querySelector('#search-container')
-    searchContainer.classList.toggle('hidden')
-    searchContainer.querySelector('input')
+  searchButton?.addEventListener('click', () => openSearch())
+
+  document.documentElement.addEventListener('keydown', (event) => {
+    if (
+      event.key === '/' &&
+      document.activeElement?.tagName.toLowerCase() !== 'input'
+    ) {
+      event.preventDefault()
+      openSearch()
+    }
   })
 
-  document.documentElement.addEventListener('keydown', (e) => {
-    if (e.key === '/' && document.activeElement?.tagName !== 'INPUT') {
-      const searchContainer = document.querySelector('#search-container')
-      searchContainer.classList.remove('hidden')
-      setTimeout(() => {
-        searchContainer.querySelector('input')
-      })
-    }
-    if (e.key === 'Escape') {
-      const searchContainer = document.querySelector('#search-container')
-      searchContainer.classList.add('hidden')
-    }
-  })
+  function openSearch() {
+    const searchDialog = document.querySelector('#search-dialog')
+    searchDialog?.showModal()
+  }
 
   const themeButton = document.querySelector('#theme')
   themeButton.addEventListener('click', () => {

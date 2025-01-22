@@ -29,7 +29,7 @@ const { notes, page, tag } = Astro.props
               imgAlt={note.data.title}
               title={note.data.title}
             >
-              <p class="line-clamp-2 mb-2"> {note.data.description} </p>
+              <p class="line-clamp-2 mb-2">{note.data.description}</p>
               <time
                 class="ml-auto mt-auto flex"
                 datetime={note.data.pubDate.toISOString()}

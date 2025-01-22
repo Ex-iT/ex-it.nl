@@ -40,12 +40,10 @@
     --color-highlight: var(--color-ex-it);
   }
 
-  ::selection {
+  ::selection:not(mark) {
     @apply bg-highlight text-base;
   }
-}
 
-@layer base {
   a:hover {
     @apply hover:text-secondary transition-all;
   }

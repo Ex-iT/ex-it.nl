@@ -23,14 +23,6 @@ export const pageSchema = z.object({
   title: z.string(),
 })
 
-const pages = defineCollection({
-  loader: glob({
-    pattern: '**/*.{md,mdx}',
-    base: './src/content/pages',
-  }),
-  schema: pageSchema,
-})
-
 const projectSchema = z.object({
   title: z.string(),
   url: z.string(),
@@ -43,4 +35,4 @@ const projects = defineCollection({
   schema: projectSchema,
 })
 
-export const collections = { notes, pages, projects }
+export const collections = { notes, projects }

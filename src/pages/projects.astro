@@ -10,10 +10,7 @@ const data = projects.map(({ data }) => data)
 
 <PageLayout title={getTitle('Projects')} description="Personal projects">
   <section class="section">
-    <ul
-      data-pagefind-body
-      class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4"
-    >
+    <ul class="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4">
       {
         data.map(({ title, description, url, avatar }) => (
           <li>
