@@ -34,7 +34,7 @@ export const siteConfig: SiteConfig = {
   keywords:
     'Ex-iT, blog, CTF, HackTheBox, TryHackMe, security, programming, development',
   author: 'Ex-iT',
-  avatar: '/me.png',
+  avatar: '/images/me.png',
   favicon: '/favicon.ico',
   site: 'https://ex-it.nl',
   pageSize: 10,
