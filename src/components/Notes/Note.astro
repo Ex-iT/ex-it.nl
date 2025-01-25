@@ -27,6 +27,16 @@ const { Content } = await render(note)
     <article class="article base-card grow" data-pagefind-body>
       <h1 id={data.title}>{data.title}</h1>
 
+      <div class="h-auto min-w-20">
+        <img
+          src={note.data.image
+            ? note.data.image
+            : '/images/exit-to-app-sharp-80.png'}
+          alt={data.title}
+          class="h-20 rounded-full"
+        />
+      </div>
+
       <a href={`/notes/${data.tag}`}>{data.tag}</a>:::{data.tags?.join(', ')}
 
       {

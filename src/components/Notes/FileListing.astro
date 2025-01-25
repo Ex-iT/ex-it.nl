@@ -4,8 +4,14 @@ import { Icon } from 'astro-icon/components'
 import fetchFileList from '../../utils/fetchFileList.ts'
 import type { File } from '../../utils/fetchFileList.ts'
 
+interface Props {
+  note: CollectionEntry<'notes'>
+}
+
+const { note } = Astro.props
+
 let files: File[] = []
-const fileListResponse = await fetchFileList('some-tag', 'some-project')
+const fileListResponse = await fetchFileList(note.id)
 if (fileListResponse && fileListResponse.status === 200) {
   files = (await fileListResponse.json()) ?? []
 
@@ -14,10 +20,6 @@ if (fileListResponse && fileListResponse.status === 200) {
 
   // Sort directories first
   files.sort((a, z) => (a.type === 'dir' && z.type !== 'dir' ? -1 : 1))
-}
-
-interface Props {
-  note: CollectionEntry<'notes'>
 }
 ---
 

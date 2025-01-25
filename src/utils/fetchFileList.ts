@@ -17,7 +17,7 @@ export interface File {
   }
 }
 
-export default function (tag: string, project: string) {
+export default function (id: string) {
   const token = import.meta.env.GITHUB_AUTHORIZATION_BEARER_TOKEN
   const headers: RequestInit['headers'] = {
     Accept: 'application/vnd.github+json',
@@ -28,5 +28,5 @@ export default function (tag: string, project: string) {
     headers['Authorization'] = `Bearer ${token}`
   }
 
-  return fetch(`${siteConfig.filesContentUrl}/${tag}/${project}`, { headers })
+  return fetch(`${siteConfig.filesContentUrl}/${id}`, { headers })
 }

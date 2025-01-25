@@ -43,8 +43,8 @@ import PageFindSearch from 'astro-pagefind/components/Search'
       @apply bg-back border-primary;
     }
 
-    & :global(.pagefind-ui__result-thumb) {
-      @apply hidden;
+    & :global(.pagefind-ui__results-area) {
+      @apply overflow-auto max-h-[50vh] pr-4;
     }
 
     & :global(.pagefind-ui__result-title .pagefind-ui__result-link) {
