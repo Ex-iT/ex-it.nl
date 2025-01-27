@@ -1,20 +1,24 @@
 ---
 import { Icon } from 'astro-icon/components'
 import { siteConfig } from '../../config'
+import SocialLinks from './SocialLinks.astro'
 const date = new Date()
 ---
 
-<footer class="mt-auto bg-base transition-all h-16 shrink-0 py-2">
-  <p
-    class="container-global text-secondary text-sm text-right flex items-center justify-end h-full"
-  >
-    <a href="/" class="flex gap-2 items-center mr-2">
-      <Icon
-        class="w-4 h-4 text-highlight"
-        name="material-symbols:exit-to-app-sharp"
-      />
-      {siteConfig.title}
-    </a>
-    &copy; {date.getFullYear()}
-  </p>
+<footer
+  class="mt-auto flex items-center bg-base transition-all h-16 shrink-0 py-2"
+>
+  <section class="container-global flex justify-between w-full">
+    <SocialLinks isSmall />
+    <p class="text-secondary flex text-sm text-right items-center">
+      <a href="/" class="flex gap-2 items-center mr-2">
+        <Icon
+          class="w-4 h-4 text-highlight"
+          name="material-symbols:exit-to-app-sharp"
+        />
+        {siteConfig.title}
+      </a>
+      &copy; {date.getFullYear()}
+    </p>
+  </section>
 </footer>
