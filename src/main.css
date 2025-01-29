@@ -77,10 +77,6 @@
   .blur-global {
     @apply backdrop-blur-lg backdrop-saturate-150;
   }
-
-  .badge {
-    @apply bg-back rounded-xl transition-all px-2 py-1 flex items-center font-bold;
-  }
 }
 
 /* Add language label to code blocks */

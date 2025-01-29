@@ -1,0 +1,26 @@
+---
+import Badge from '../App/Badge.astro'
+
+interface Props {
+  tag: string | undefined
+  tags?: Array<string> | undefined
+}
+
+const { tag, tags = [] } = Astro.props
+---
+
+<div class="flex gap-2">
+  {
+    tag && (
+      <Badge variant="subtle">
+        <a
+          class="underline hover:no-underline hover:hover:text-primary"
+          href={`/notes/${tag}`}
+        >
+          {tag}
+        </a>
+      </Badge>
+    )
+  }
+  {tags?.map((tag) => <Badge variant="outline">{tag}</Badge>)}
+</div>

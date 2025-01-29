@@ -1,0 +1,14 @@
+---
+interface Props {
+  imgSrc: string | undefined
+  alt?: string
+}
+
+const { imgSrc, alt } = Astro.props
+---
+
+<img
+  src={imgSrc ? imgSrc : '/images/exit-to-app-sharp-80.png'}
+  alt={alt}
+  class="h-20 rounded-full"
+/>

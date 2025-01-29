@@ -1,11 +1,11 @@
 ---
 import { render } from 'astro:content'
 import getTitle from '../../utils/getTitle'
-import formatDate from '../../utils/formatDate'
-import Badge from '../../components/Badge.astro'
 import type { CollectionEntry } from 'astro:content'
 import PageLayout from '../../layouts/PageLayout.astro'
 import FileListing from './FileListing.astro'
+import Image from '../../components/Notes/Image.astro'
+import SubHeader from './SubHeader.astro'
 
 interface Props {
   note: CollectionEntry<'notes'>
@@ -25,31 +25,16 @@ const { Content } = await render(note)
     </aside>
 
     <article class="article base-card grow" data-pagefind-body>
-      <h1 id={data.title}>{data.title}</h1>
+      <section class="flex gap-4">
+        <div class="w-full">
+          <h1 class="mb-2">{data.title}</h1>
+          <SubHeader {data} />
+        </div>
 
-      <div class="h-auto min-w-20">
-        <img
-          src={note.data.image
-            ? note.data.image
-            : '/images/exit-to-app-sharp-80.png'}
-          alt={data.title}
-          class="h-20 rounded-full"
-        />
-      </div>
-
-      <a href={`/notes/${data.tag}`}>{data.tag}</a>:::{data.tags?.join(', ')}
-
-      {
-        data.pubDate && (
-          <div class="flex space-x-4 not-prose">
-            <Badge icon="material-symbols:edit-calendar-rounded">
-              <time datetime={data.pubDate.toISOString()}>
-                {formatDate(data.pubDate)}
-              </time>
-            </Badge>
-          </div>
-        )
-      }
+        <div class="h-auto min-w-20 ml-auto mr-4">
+          <Image imgSrc={note.data.image} alt={data.title} />
+        </div>
+      </section>
 
       <Content />
     </article>

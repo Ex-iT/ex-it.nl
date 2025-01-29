@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components'
 import { siteConfig } from '../config'
 import MainLayout from '../layouts/MainLayout.astro'
+import Badge from '../components/App/Badge.astro'
 ---
 
 <MainLayout>
@@ -16,10 +17,22 @@ import MainLayout from '../layouts/MainLayout.astro'
       </h1>
     </div>
     <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam animi,
-      nam numquam perferendis dicta cumque neque consequatur sunt! Quos earum
-      odit odio rem maxime voluptatum atque sint! Consectetur, nulla
-      perferendis.
+      A collection of my notes from <a
+        href="https://en.wikipedia.org/wiki/Capture_the_flag_(cybersecurity)"
+        title="Capture the Flag"
+        target="_blank">CTF</a
+      >'s and other coding projects I've been doing over the years.
+    </p>
+    <p>
+      Since I've been taking notes while doing CTF's, on mostly <a
+        href="https://app.hackthebox.com/profile/169430"
+        target="_blank">Hack The Box</a
+      > and <a href="https://tryhackme.com/r/p/MrBlonde" target="_blank"
+        >TryHackMe</a
+      >, I wanted to have a place to store and easily search (type <Badge
+        variant="outline">/</Badge
+      > to search) through them. These are definitely not tutorials or proper blog
+      posts, just a collection of my personal notes.
     </p>
   </article>
 </MainLayout>
