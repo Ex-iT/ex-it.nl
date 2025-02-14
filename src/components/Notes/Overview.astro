@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import type { Page } from 'astro'
-import PageLayout from '../../layouts/PageLayout.astro'
+import MainLayout from '../../layouts/MainLayout.astro'
 import getTitle from '../../utils/getTitle'
 import Pagination from '../App/Pagination.astro'
 import NotesList from './NotesList.astro'
@@ -15,9 +15,9 @@ interface Props {
 const { notes, page, category } = Astro.props
 ---
 
-<PageLayout title={getTitle('All Notes')} description="All Notes">
+<MainLayout title={getTitle('All Notes')} description="All Notes">
   <div class="grow">
     <NotesList {notes} />
     <Pagination page={page} {category} />
   </div>
-</PageLayout>
+</MainLayout>
