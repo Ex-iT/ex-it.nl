@@ -5,16 +5,16 @@ import { Icon } from 'astro-icon/components'
 
 interface Props {
   page: Page<CollectionEntry<'notes'>>
-  tag: CollectionEntry<'notes'>['data']['tag'] | undefined
+  category: CollectionEntry<'notes'>['data']['category']
 }
 
-const { page, tag = undefined } = Astro.props
+const { page, category = undefined } = Astro.props
 
 function getHref(index: number) {
-  if (tag === undefined) {
+  if (category === undefined) {
     return `/notes${index > 0 ? `/${index + 1}` : ''}`
   } else {
-    return `/notes/${tag}${index > 0 ? `/${index + 1}` : ''}`
+    return `/notes/${category}${index > 0 ? `/${index + 1}` : ''}`
   }
 }
 ---

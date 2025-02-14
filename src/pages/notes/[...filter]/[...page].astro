@@ -11,33 +11,34 @@ export async function getStaticPaths({ paginate }) {
       (z.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)
   )
 
-  const tags = [...new Set(notes.flatMap((note) => note.data.tag))]
+  const categories = [...new Set(notes.flatMap((note) => note.data.category))]
 
   return [
     ...paginate(notes, {
       pageSize: siteConfig.pageSize,
-      props: { tags },
+      props: { categories },
     }),
 
-    ...tags.flatMap((tag) => {
-      if (!tag) return []
+    ...categories.flatMap((category) => {
+      if (!category) return []
       return paginate(
-        notes.filter((note) => note.data.tag === tag),
+        notes.filter((note) => note.data.category === category),
         {
-          params: { filter: tag },
+          params: { filter: category },
           pageSize: siteConfig.pageSize,
-          props: { tags, tag },
+          props: { category },
         }
       )
     }),
   ]
 }
 
-const { page, tags, tag } = Astro.props as {
+interface Props {
   page: Page<CollectionEntry<'notes'>>
-  tags: CollectionEntry<'notes'>['data']['tag'][]
-  tag: CollectionEntry<'notes'>['data']['tag']
+  category: CollectionEntry<'notes'>['data']['category']
 }
+
+const { page, category } = Astro.props
 ---
 
-<Overview notes={page.data} {tags} {tag} {page} />
+<Overview notes={page.data} {page} {category} />

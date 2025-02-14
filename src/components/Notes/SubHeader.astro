@@ -11,7 +11,7 @@ const { data } = Astro.props
 ---
 
 <div class="flex flex-col gap-2">
-  <Tags tag={data.tag} tags={data.tags} />
+  <Tags category={data.category} tags={data.tags} />
   {
     data.pubDate && (
       <time class="text-sm" datetime={data.pubDate.toISOString()}>

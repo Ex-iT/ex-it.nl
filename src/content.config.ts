@@ -3,7 +3,7 @@ import { file, glob } from 'astro/loaders'
 import { rssSchema } from '@astrojs/rss'
 
 export const notesSchema = rssSchema.extend({
-  tag: z.string().optional(),
+  category: z.string().optional(),
   tags: z.array(z.string()).optional(),
   image: z.string().optional(),
 })

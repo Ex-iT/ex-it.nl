@@ -1,23 +1,24 @@
 ---
+import type { CollectionEntry } from 'astro:content'
 import Badge from '../App/Badge.astro'
 
 interface Props {
-  tag: string | undefined
-  tags?: Array<string> | undefined
+  category: CollectionEntry<'notes'>['data']['category']
+  tags: CollectionEntry<'notes'>['data']['tags']
 }
 
-const { tag, tags = [] } = Astro.props
+const { category, tags = [] } = Astro.props
 ---
 
 <div class="flex gap-2">
   {
-    tag && (
+    category && (
       <Badge variant="subtle">
         <a
           class="underline hover:no-underline hover:hover:text-primary"
-          href={`/notes/${tag}`}
+          href={`/notes/${category}`}
         >
-          {tag}
+          {category}
         </a>
       </Badge>
     )
