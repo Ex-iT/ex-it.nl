@@ -1,0 +1,11 @@
+---
+import { getCollection } from 'astro:content'
+import { siteConfig } from '../../config'
+import NotesList from './NotesList.astro'
+
+const notes = (await getCollection('notes')).sort(
+  (a, z) => (z.data.pubDate?.valueOf() ?? 0) - (a.data.pubDate?.valueOf() ?? 0)
+)
+---
+
+<NotesList notes={notes.slice(0, siteConfig.latestNotesSize)} />

@@ -9,6 +9,7 @@ interface SiteConfig {
   favicon: string
   site: string
   pageSize: number
+  latestNotesSize: number
   filesContentUrl: string
 }
 
@@ -38,6 +39,7 @@ export const siteConfig: SiteConfig = {
   favicon: '/favicon.ico',
   site: 'https://ex-it.nl',
   pageSize: 10,
+  latestNotesSize: 3,
   filesContentUrl:
     'https://api.github.com/repos/Ex-iT/ex-it.nl/contents/src/content/notes',
 }

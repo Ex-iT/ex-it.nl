@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import LinkedCard from '../Card/LinkedCard.astro'
+import formatDate from '../../utils/formatDate'
+
+interface Props {
+  notes: CollectionEntry<'notes'>[]
+}
+
+const { notes } = Astro.props
+---
+
+<ul class="space-y-4">
+  {
+    notes.map((note) => (
+      <li>
+        <LinkedCard
+          url={`/notes/${note.id}`}
+          img={note.data.image}
+          imgAlt={note.data.title}
+          title={note.data.title}
+        >
+          <p class="line-clamp-2 mb-2">{note.data.description}</p>
+          {note.data.pubDate && (
+            <time
+              class="ml-auto mt-auto flex"
+              datetime={note.data.pubDate.toISOString()}
+            >
+              {formatDate(note.data.pubDate)}
+            </time>
+          )}
+        </LinkedCard>
+      </li>
+    ))
+  }
+</ul>
