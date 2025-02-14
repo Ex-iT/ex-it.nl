@@ -2,7 +2,7 @@
 title: Some name - Example
 description: Example post description.
 pubDate: 2024-06-01
-tag: 'example'
+category: 'example'
 tags: ['foo', 'example', 'bar']
 ---
 
