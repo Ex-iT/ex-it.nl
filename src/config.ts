@@ -54,10 +54,6 @@ export const navBarConfig: NavBarConfig = {
       name: 'Projects',
       url: '/projects',
     },
-    {
-      name: 'About',
-      url: '/about',
-    },
   ],
 }
 
