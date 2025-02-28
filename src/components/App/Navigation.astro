@@ -47,7 +47,7 @@ function isActiveLink(url: string) {
               <a
                 class:list={[
                   isActiveLink(link.url) && 'font-bold underline',
-                  'flex items-center py-2 hover:bg-hover transition-all',
+                  'flex items-center p-2 hover:bg-hover focus:bg-hover hover:hover:text-primary transition-all',
                 ]}
                 href={link.url}
                 target={link.target}

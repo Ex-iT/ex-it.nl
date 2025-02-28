@@ -4,22 +4,21 @@ import { Icon } from 'astro-icon/components'
 interface Props {
   id: string
   open?: boolean
-  class?: string
 }
 
-const { id, open = false, class: className } = Astro.props
+const { id, open = false } = Astro.props
 ---
 
 <dialog
   {id}
   class:list={[
     'open:translate-x-0',
-    'bg-back mt-0 h-full max-h-full w-full max-w-full -translate-x-full transition-all duration-150 transition-discrete',
+    'bg-back ml-0 h-full max-h-full w-3/4 max-sm:w-full max-w-full -translate-x-full transition-all duration-150 transition-discrete',
     'starting:open:-translate-x-full',
-    'backdrop:bg-transparent ',
-    className,
+    'backdrop:backdrop-blur backdrop:bg-back/60',
   ]}
   {open}
+  closedby="any"
 >
   <section class="flex flex-col container-global pt-5 text-primary">
     <slot name="close">
