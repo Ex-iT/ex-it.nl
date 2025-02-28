@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import formatDate from '../../utils/formatDate'
-import Tags from './Tags.astro'
+import Badge from '../App/Badge.astro'
 
 interface Props {
   data: CollectionEntry<'notes'>['data']
@@ -10,13 +10,24 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<div class="flex flex-col gap-2">
-  <Tags category={data.category} tags={data.tags} />
+<div class="flex items-center gap-2">
   {
     data.pubDate && (
       <time class="text-sm" datetime={data.pubDate.toISOString()}>
         {formatDate(data.pubDate)}
       </time>
+    )
+  }
+  {
+    data.category && (
+      <Badge variant="subtle">
+        <a
+          class="underline hover:no-underline hover:opacity-80 hover:hover:text-primary transition-all"
+          href={`/notes/${data.category}`}
+        >
+          {data.category}
+        </a>
+      </Badge>
     )
   }
 </div>

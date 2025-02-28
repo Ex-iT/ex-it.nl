@@ -7,5 +7,5 @@ export default (
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-  }
+  },
 ) => new Date(date).toLocaleDateString(language, options)

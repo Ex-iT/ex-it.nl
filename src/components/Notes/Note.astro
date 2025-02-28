@@ -6,6 +6,7 @@ import PageLayout from '../../layouts/PageLayout.astro'
 import FileListing from './FileListing.astro'
 import Image from '../../components/Notes/Image.astro'
 import SubHeader from './SubHeader.astro'
+import Tags from './Tags.astro'
 
 interface Props {
   note: CollectionEntry<'notes'>
@@ -24,19 +25,23 @@ const { Content } = await render(note)
       <FileListing {note} />
     </aside>
 
-    <article class="article base-card grow" data-pagefind-body>
-      <section class="flex gap-4">
-        <div class="w-full">
-          <h1 class="mb-2">{data.title}</h1>
-          <SubHeader {data} />
-        </div>
+    <section data-pagefind-body>
+      <article class="article base-card grow mb-4">
+        <section class="flex gap-4">
+          <div class="w-full">
+            <h1 class="mb-2">{data.title}</h1>
+            <SubHeader {data} />
+          </div>
 
-        <div class="h-auto min-w-20 ml-auto mr-4">
-          <Image imgSrc={note.data.image} alt={data.title} />
-        </div>
-      </section>
+          <div class="h-auto min-w-20 ml-auto mr-4">
+            <Image imgSrc={note.data.image} alt={data.title} />
+          </div>
+        </section>
 
-      <Content />
-    </article>
+        <Content />
+      </article>
+
+      {data.tags && <Tags tags={data.tags} />}
+    </section>
   </div>
 </PageLayout>

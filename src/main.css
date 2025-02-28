@@ -73,10 +73,6 @@
         prose-img:rounded-xl prose-img:max-h-screen prose-pre:break-words prose-pre:whitespace-pre-wrap
         prose-h2:scroll-my-20 prose-h3:scroll-my-20;
   }
-
-  .blur-global {
-    @apply backdrop-blur-lg backdrop-saturate-150;
-  }
 }
 
 /* Add language label to code blocks */

@@ -8,7 +8,7 @@ const { variant = 'solid' } = Astro.props
 
 <span
   class:list={[
-    'inline-flex items-center text-primary font-medium rounded-md text-sm px-2 py-1 gap-1 border border-primary',
+    'inline-flex items-center text-primary font-normal rounded-md text-sm px-2 py-1 gap-1 border border-primary',
     `${variant === 'solid' ? 'bg-primary text-secondary' : ''}`,
     `${variant === 'outline' ? 'bg-transparent' : ''}`,
     `${variant === 'subtle' ? 'bg-secondary' : ''}`,
