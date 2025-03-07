@@ -1,0 +1,35 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import FileExplorer from '../FileExplorer/FileExplorer.astro'
+import { Icon } from 'astro-icon/components'
+import Drawer from '../Drawer/Drawer.astro'
+import IconButton from '../Buttons/IconButton.astro'
+
+interface Props {
+  note: CollectionEntry<'notes'>
+}
+
+const { note } = Astro.props
+---
+
+<aside
+  class:list={[
+    'pt-2 sticky top-20 bg-base mr-2 rounded-r-xl',
+    'sm:mr-4',
+    'md:basis-64 md:shrink-0 md:mr-4 md:p-2 md:rounded-xl',
+  ]}
+>
+  <IconButton id="trigger-explorer-drawer" class="md:hidden">
+    <Icon
+      name="material-symbols:drag-handle-rounded"
+      class="w-8 h-8 rotate-90 text-secondary"
+    />
+  </IconButton>
+  <Drawer id="explorer-drawer">
+    <FileExplorer noteId={note.id} />
+  </Drawer>
+
+  <section class="hidden md:block">
+    <FileExplorer noteId={note.id} />
+  </section>
+</aside>
