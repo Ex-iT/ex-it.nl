@@ -1,6 +1,6 @@
 ---
 title: Agent Sudo
-description: Password attack with hydra and stegseek
+description: 'Password attack with hydra and stegseek'
 pubDate: 2024-01-04
 category: 'tryhackme'
 tags: ['hydra', 'binwalk']
