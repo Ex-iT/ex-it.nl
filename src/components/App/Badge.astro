@@ -1,9 +1,10 @@
 ---
 interface Props {
   variant?: 'solid' | 'subtle' | 'soft' | 'outline'
+  class?: string
 }
 
-const { variant = 'solid' } = Astro.props
+const { variant = 'solid', class: className } = Astro.props
 ---
 
 <span
@@ -13,6 +14,7 @@ const { variant = 'solid' } = Astro.props
     `${variant === 'outline' ? 'bg-transparent' : ''}`,
     `${variant === 'subtle' ? 'bg-secondary' : ''}`,
     `${variant === 'soft' ? 'bg-secondary border-secondary' : ''}`,
+    className,
   ]}
 >
   <slot />

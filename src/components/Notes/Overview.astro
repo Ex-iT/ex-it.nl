@@ -1,10 +1,12 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import type { Page } from 'astro'
+import { Icon } from 'astro-icon/components'
 import MainLayout from '../../layouts/MainLayout.astro'
 import getTitle from '../../utils/getTitle'
 import Pagination from '../App/Pagination.astro'
 import NotesList from './NotesList.astro'
+import Badge from '../App/Badge.astro'
 
 interface Props {
   notes: CollectionEntry<'notes'>[]
@@ -16,8 +18,25 @@ const { notes, page, category } = Astro.props
 ---
 
 <MainLayout title={getTitle('All Notes')} description="All Notes">
-  <div class="grow">
+  <section class="grow">
+    {
+      category && (
+        <h2 class="mb-2">
+          Filtering by category
+          <Badge variant="subtle" class="ml-1 mb-2">
+            <a
+              href="/notes"
+              class="flex items-center gap-1 underline hover:no-underline hover:opacity-80 hover:hover:text-primary transition-all"
+              title="Clear filter"
+            >
+              {category}
+              <Icon class="w-5 h-5" name="material-symbols:close" />
+            </a>
+          </Badge>
+        </h2>
+      )
+    }
     <NotesList {notes} />
     <Pagination page={page} {category} />
-  </div>
+  </section>
 </MainLayout>
