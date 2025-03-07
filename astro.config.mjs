@@ -12,7 +12,6 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
-  trailingSlash: 'always',
   integrations: [
     mdx(),
     pagefind(),

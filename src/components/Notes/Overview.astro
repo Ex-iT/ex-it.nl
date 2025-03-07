@@ -36,12 +36,13 @@ const { notes, page, category } = Astro.props
         </h2>
       )
     }
-    {notes.length > 0 ? (
-      <NotesList {notes} />
-      <Pagination page={page} {category} />
-    ) : (
-      <h2>No notes yet</h2>
-    )
+    {
+      notes.length > 0 ? (
+        <NotesList {notes} />
+        <Pagination page={page} {category} />
+      ) : (
+        <h2>No notes yet</h2>
+      )
     }
   </section>
 </MainLayout>

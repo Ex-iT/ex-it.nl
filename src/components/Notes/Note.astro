@@ -3,7 +3,7 @@ import { render } from 'astro:content'
 import getTitle from '../../utils/getTitle'
 import type { CollectionEntry } from 'astro:content'
 import PageLayout from '../../layouts/PageLayout.astro'
-import Image from '../../components/Notes/Image.astro'
+import NoteImage from '../../components/Notes/NoteImage.astro'
 import SubHeader from './SubHeader.astro'
 import Tags from './Tags.astro'
 import NotesAside from './NotesAside.astro'
@@ -17,7 +17,11 @@ const { data } = note
 const { Content } = await render(note)
 ---
 
-<PageLayout title={getTitle(data.title)} description={data.description}>
+<PageLayout
+  title={getTitle(data.title)}
+  description={data.description}
+  image={note.data.image}
+>
   <div class="flex items-start">
     <NotesAside {note} />
 
@@ -30,7 +34,7 @@ const { Content } = await render(note)
           </div>
 
           <div class="h-auto min-w-20 ml-auto mr-4">
-            <Image imgSrc={note.data.image} alt={data.title} />
+            <NoteImage imgSrc={note.data.image} alt={data.title} />
           </div>
         </section>
 

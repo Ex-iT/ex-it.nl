@@ -16,14 +16,15 @@ const { title, description, image } = Astro.props
 <BaseLayout
   title={getTitle(title ?? '')}
   description={description ?? ''}
-  image={image}
+  {image}
 >
   <main class="mt-20 mb-4">
     <div class="container-global flex items-start">
-      <aside class="shrink-0 max-md:hidden mr-4 sticky top-20">
+      <aside class="shrink-0 w-64 max-md:hidden mr-4 sticky top-20">
         <slot name="aside">
           <div class="base-card flex flex-col">
             <Avatar />
+            <hr class="my-4 border-secondary" />
             <SocialLinks />
           </div>
         </slot>

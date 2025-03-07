@@ -1,14 +1,18 @@
 ---
+import { Image } from 'astro:assets'
+
 interface Props {
   imgSrc: string | undefined
-  alt?: string
+  alt: string
 }
 
 const { imgSrc, alt } = Astro.props
 ---
 
-<img
+<Image
   src={imgSrc ? imgSrc : '/images/exit-to-app-sharp-80.png'}
   alt={alt}
-  class="h-20 rounded-full"
+  width={80}
+  height={80}
+  class="rounded-full"
 />
