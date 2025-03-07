@@ -10,8 +10,9 @@ export default defineConfig({
   site: siteConfig.site,
   server: { port: 3000 },
   build: {
-    format: 'file',
+    format: 'directory',
   },
+  trailingSlash: 'always',
   integrations: [
     mdx(),
     pagefind(),
