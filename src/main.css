@@ -6,6 +6,10 @@
   --color-ex-it: 0 218 49;
 }
 
+@view-transition {
+  navigation: auto;
+}
+
 @layer base {
   html,
   body {

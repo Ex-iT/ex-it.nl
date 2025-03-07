@@ -20,7 +20,6 @@ export default {
   },
   plugins: [
     require('@tailwindcss/typography'),
-    require('tailwindcss-animate'),
     plugin(function ({ addVariant, addUtilities }: PluginAPI) {
       addVariant('starting', '@starting-style')
 
