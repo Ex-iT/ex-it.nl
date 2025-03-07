@@ -1,10 +1,11 @@
 ---
 import { Image } from 'astro:assets'
 import { siteConfig } from '../../config'
+import avatarImage from '../../assets/avatar.png'
 ---
 
 <Image
-  src={siteConfig.avatar}
+  src={avatarImage}
   alt={`Photo of ${siteConfig.author}`}
   width={224}
   height={224}

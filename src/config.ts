@@ -6,7 +6,7 @@ interface SiteConfig {
   keywords: string
   author: string
   tagLine: string
-  avatar: string
+  logo: string
   site: string
   pageSize: number
   latestNotesSize: number
@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
     'Ex-iT, blog, CTF, HackTheBox, TryHackMe, security, programming, development',
   author: 'Ex-iT',
   tagLine: 'Hacking, Coding and all the Web things',
-  avatar: '/images/ex-it.png',
+  logo: '/images/ex-it.png',
   site: 'https://ex-it.nl',
   pageSize: 10,
   latestNotesSize: 3,
