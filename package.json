@@ -3,10 +3,9 @@
   "type": "module",
   "version": "0.1.0",
   "license": "UNLICENSED",
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@10.6.1",
   "engines": {
-    "node": ">=22.0.0",
-    "pnpnm": ">=9.0.0"
+    "node": ">=22.0.0"
   },
   "scripts": {
     "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
