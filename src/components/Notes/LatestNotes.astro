@@ -8,4 +8,10 @@ const notes = (await getCollection('notes')).sort(
 )
 ---
 
-<NotesList notes={notes.slice(0, siteConfig.latestNotesSize)} />
+{
+  notes.length > 0 ? (
+    <NotesList notes={notes.slice(0, siteConfig.latestNotesSize)} />
+  ) : (
+    <p class="text-secondary">No notes yet</p>
+  )
+}

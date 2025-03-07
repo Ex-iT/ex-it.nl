@@ -31,8 +31,8 @@ import LatestNotes from '../components/Notes/LatestNotes.astro'
           target="_blank">Hack The Box</a
         > and <a href="https://tryhackme.com/r/p/MrBlonde" target="_blank"
           >TryHackMe</a
-        >, I wanted to have a place to store and easily search (type <Badge
-          variant="outline">/</Badge
+        >, I wanted to have a place to store and easily search (type <button
+          id="search-trigger"><Badge variant="outline">/</Badge></button
         > to search) through them. These are definitely not tutorials or proper blog
         posts, just a collection of my personal notes.
       </p>
@@ -43,3 +43,17 @@ import LatestNotes from '../components/Notes/LatestNotes.astro'
     </section>
   </section>
 </MainLayout>
+
+<script>
+  const searchTrigger = document.getElementById(
+    'search-trigger'
+  ) as HTMLButtonElement
+  searchTrigger?.addEventListener('click', () => openSearch())
+
+  function openSearch() {
+    const searchDialog = document.querySelector(
+      '#search-dialog'
+    ) as HTMLDialogElement
+    searchDialog?.showModal()
+  }
+</script>
