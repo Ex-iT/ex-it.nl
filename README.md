@@ -8,8 +8,8 @@ Personal notes / blog / portfolio website build with [Astro](https://astro.build
 ## Development
 
 Prerequisites:
-- [Node.js](https://nodejs.org/) v20.x
-- [pNpm](https://pnpm.io/) v9.x
+- [Node.js](https://nodejs.org/) v22.x
+- [pNpm](https://pnpm.io/) v10.x
 
 Install dependencies:
 ```bash
