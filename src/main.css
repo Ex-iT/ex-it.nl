@@ -28,7 +28,7 @@
     --color-base: 255 255 255;
     --color-back: 245 245 245;
     --color-primary: 10 10 10;
-    --color-secondary: 115 115 115;
+    --color-secondary: 83 83 83;
     --color-hover: 229 229 229;
     --color-active: 212 212 212;
     --color-highlight: var(--color-ex-it);
@@ -38,7 +38,7 @@
     --color-base: 38 38 38;
     --color-back: 23 23 23;
     --color-primary: 250 250 250;
-    --color-secondary: 115 115 115;
+    --color-secondary: 178 178 178;
     --color-hover: 82 82 82;
     --color-active: 64 64 64;
     --color-highlight: var(--color-ex-it);
