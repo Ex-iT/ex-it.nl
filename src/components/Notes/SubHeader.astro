@@ -10,10 +10,13 @@ interface Props {
 const { data } = Astro.props
 ---
 
-<div class="flex items-center gap-2">
+<div class="flex items-center gap-2 mb-2">
   {
     data.pubDate && (
-      <time class="text-sm" datetime={data.pubDate.toISOString()}>
+      <time
+        class="shrink-0 basis-auto text-sm"
+        datetime={data.pubDate.toISOString()}
+      >
         {formatDate(data.pubDate)}
       </time>
     )

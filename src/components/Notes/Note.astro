@@ -28,17 +28,23 @@ const { Content } = await render(note)
     <section data-pagefind-body class="w-full">
       <article class="article base-card grow mb-4">
         <section class="flex gap-4 border-b-secondary border-b">
-          <div class="w-full">
+          <div class="w-full relative">
             <h1 class="mb-2">{data.title}</h1>
             <SubHeader {data} />
           </div>
 
-          <div class="h-auto min-w-20 ml-auto mr-4">
-            <NoteImage imgSrc={note.data.image} alt={data.title} />
+          <div class="h-auto min-w-20 ml-auto mb-4 mr-4">
+            <NoteImage
+              imgSrc={note.data.image}
+              alt={data.title}
+              class="not-prose rounded-xl"
+            />
           </div>
         </section>
 
-        <Content />
+        <div class="break-all">
+          <Content />
+        </div>
       </article>
 
       {data.tags && <Tags tags={data.tags} />}

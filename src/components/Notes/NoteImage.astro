@@ -4,9 +4,10 @@ import { Image } from 'astro:assets'
 interface Props {
   imgSrc: string | undefined
   alt: string
+  class?: string
 }
 
-const { imgSrc, alt } = Astro.props
+const { imgSrc, alt, class: className } = Astro.props
 ---
 
 <Image
@@ -14,5 +15,5 @@ const { imgSrc, alt } = Astro.props
   alt={alt}
   width={80}
   height={80}
-  class="rounded-full"
+  class:list={['rounded-full', className]}
 />
