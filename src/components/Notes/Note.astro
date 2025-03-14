@@ -22,11 +22,11 @@ const { Content } = await render(note)
   description={data.description}
   image={note.data.image}
 >
-  <div class="flex items-start">
+  <div class="flex items-start max-w-full">
     <NotesAside {note} />
 
-    <section data-pagefind-body class="w-full">
-      <article class="article base-card grow mb-4">
+    <section data-pagefind-body class="w-full overflow-hidden">
+      <article class="article base-card mb-4">
         <section class="flex gap-4 border-b-secondary border-b">
           <div class="w-full relative">
             <h1 class="mb-2">{data.title}</h1>
@@ -42,9 +42,9 @@ const { Content } = await render(note)
           </div>
         </section>
 
-        <div class="break-all">
+        <section>
           <Content />
-        </div>
+        </section>
       </article>
 
       {data.tags && data.tags.length > 0 && <Tags tags={data.tags} />}

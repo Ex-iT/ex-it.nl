@@ -77,8 +77,12 @@
 }
 
 /* Add language label to code blocks */
+pre.astro-code {
+  @apply whitespace-pre;
+}
+
 pre.astro-code[data-language] {
-  @apply relative break-all;
+  @apply relative;
 }
 
 pre.astro-code[data-language]::after {
