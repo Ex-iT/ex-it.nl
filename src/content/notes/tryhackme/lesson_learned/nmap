@@ -1,0 +1,20 @@
+# Nmap 7.94 scan initiated Mon Sep 11 20:46:46 2023 as: nmap -v -sC -sV -p22,80 -oN nmap 10.10.165.250
+Nmap scan report for 10.10.165.250
+Host is up (0.024s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.4p1 Debian 5+deb11u1 (protocol 2.0)
+| ssh-hostkey: 
+|   3072 2e:54:89:ae:f7:91:4e:33:6e:10:89:53:9c:f5:92:db (RSA)
+|   256 dd:2c:ca:fc:b7:65:14:d4:88:a3:6e:55:71:65:f7:2f (ECDSA)
+|_  256 2b:c2:d8:1b:f4:7b:e5:78:53:56:01:9a:83:f3:79:81 (ED25519)
+80/tcp open  http    Apache httpd 2.4.54 ((Debian))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-title: Lesson Learned?
+|_http-server-header: Apache/2.4.54 (Debian)
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Sep 11 20:46:56 2023 -- 1 IP address (1 host up) scanned in 9.47 seconds

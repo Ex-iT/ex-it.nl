@@ -1,0 +1,12 @@
+sins
+lust
+gluttony
+greed
+sloth
+wrath
+envy
+pride
+errors
+error
+deaths
+death

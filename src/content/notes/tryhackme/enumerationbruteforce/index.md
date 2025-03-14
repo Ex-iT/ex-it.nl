@@ -3,7 +3,7 @@ title: Enumeration & Brute Force
 description: 'Brute forcing basic auth with Hydra and a OTP with a custom python script'
 pubDate: 2024-08-03
 category: 'tryhackme'
-tags: ['One Time Pass' ]
+tags: ['One Time Pass']
 image: 'https://tryhackme-images.s3.amazonaws.com/room-icons/645b19f5d5848d004ab9c9e2-1719928599415'
 ---
 
