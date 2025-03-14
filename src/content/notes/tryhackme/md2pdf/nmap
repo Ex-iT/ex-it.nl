@@ -1,0 +1,201 @@
+# Nmap 7.94SVN scan initiated Fri May 17 22:17:28 2024 as: nmap -v -sC -sV -p22,80,5000 -oN nmap 10.10.184.95
+WARNING: Service 10.10.184.95:80 had already soft-matched rtsp, but now soft-matched sip; ignoring second value
+WARNING: Service 10.10.184.95:5000 had already soft-matched rtsp, but now soft-matched sip; ignoring second value
+Nmap scan report for 10.10.184.95
+Host is up (0.025s latency).
+
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 3d:ab:62:d1:f2:6e:b0:91:a7:0d:15:6e:bd:90:4b:fe (RSA)
+|   256 58:f2:ad:c9:0c:d7:79:09:59:1c:35:69:78:1a:58:40 (ECDSA)
+|_  256 66:3d:05:82:ce:a3:ec:9b:c9:50:b5:95:8d:b5:fe:98 (ED25519)
+80/tcp   open  rtsp
+|_http-title: MD2PDF
+| http-methods: 
+|_  Supported Methods: HEAD OPTIONS GET
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 404 NOT FOUND
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 232
+|     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+|     <title>404 Not Found</title>
+|     <h1>Not Found</h1>
+|     <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 2660
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8" />
+|     <meta
+|     name="viewport"
+|     content="width=device-width, initial-scale=1, shrink-to-fit=no"
+|     <link
+|     rel="stylesheet"
+|     href="./static/codemirror.min.css"/>
+|     <link
+|     rel="stylesheet"
+|     href="./static/bootstrap.min.css"/>
+|     <title>MD2PDF</title>
+|     </head>
+|     <body>
+|     <!-- Navigation -->
+|     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+|     <div class="container">
+|     class="navbar-brand" href="/"><span class="">MD2PDF</span></a>
+|     </div>
+|     </nav>
+|     <!-- Page Content -->
+|     <div class="container">
+|     <div class="">
+|     <div class="card mt-4">
+|     <textarea class="form-control" name="md" id="md"></textarea>
+|     </div>
+|     <div class="mt-3
+|   HTTPOptions: 
+|     HTTP/1.0 200 OK
+|     Content-Type: text/html; charset=utf-8
+|     Allow: HEAD, OPTIONS, GET
+|     Content-Length: 0
+|   RTSPRequest: 
+|     RTSP/1.0 200 OK
+|     Content-Type: text/html; charset=utf-8
+|     Allow: HEAD, OPTIONS, GET
+|_    Content-Length: 0
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+5000/tcp open  rtsp
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.0 404 NOT FOUND
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 232
+|     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+|     <title>404 Not Found</title>
+|     <h1>Not Found</h1>
+|     <p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+|   GetRequest: 
+|     HTTP/1.0 200 OK
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 2624
+|     <!DOCTYPE html>
+|     <html lang="en">
+|     <head>
+|     <meta charset="utf-8" />
+|     <meta
+|     name="viewport"
+|     content="width=device-width, initial-scale=1, shrink-to-fit=no"
+|     <link
+|     rel="stylesheet"
+|     href="./assets/codemirror.min.css"/>
+|     <link
+|     rel="stylesheet"
+|     href="./assets/bootstrap.min.css"/>
+|     <title>MD2PDF</title>
+|     </head>
+|     <body>
+|     <!-- Navigation -->
+|     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+|     <div class="container">
+|     class="navbar-brand" href="/"><span class="">MD2PDF</span></a>
+|     </div>
+|     </nav>
+|     <!-- Page Content -->
+|     <div class="container">
+|     <div class="">
+|     <div class="card mt-4">
+|     <textarea class="form-control" name="md" id="md"></textarea>
+|     </div>
+|     <div class="mt-3
+|   HTTPOptions: 
+|     HTTP/1.0 200 OK
+|     Content-Type: text/html; charset=utf-8
+|     Allow: GET, HEAD, OPTIONS
+|     Content-Length: 0
+|   RTSPRequest: 
+|     RTSP/1.0 200 OK
+|     Content-Type: text/html; charset=utf-8
+|     Allow: GET, HEAD, OPTIONS
+|_    Content-Length: 0
+2 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.94SVN%I=7%D=5/17%Time=6647BB5E%P=x86_64-pc-linux-gnu%r(G
+SF:etRequest,AB5,"HTTP/1\.0\x20200\x20OK\r\nContent-Type:\x20text/html;\x2
+SF:0charset=utf-8\r\nContent-Length:\x202660\r\n\r\n<!DOCTYPE\x20html>\n<h
+SF:tml\x20lang=\"en\">\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20charset=\
+SF:"utf-8\"\x20/>\n\x20\x20\x20\x20<meta\n\x20\x20\x20\x20\x20\x20name=\"v
+SF:iewport\"\n\x20\x20\x20\x20\x20\x20content=\"width=device-width,\x20ini
+SF:tial-scale=1,\x20shrink-to-fit=no\"\n\x20\x20\x20\x20/>\n\n\x20\x20\x20
+SF:\x20<link\n\x20\x20\x20\x20\x20\x20rel=\"stylesheet\"\n\x20\x20\x20\x20
+SF:\x20\x20href=\"\./static/codemirror\.min\.css\"/>\n\n\x20\x20\x20\x20<l
+SF:ink\n\x20\x20\x20\x20\x20\x20rel=\"stylesheet\"\n\x20\x20\x20\x20\x20\x
+SF:20href=\"\./static/bootstrap\.min\.css\"/>\n\n\x20\x20\x20\x20\n\x20\x2
+SF:0\x20\x20<title>MD2PDF</title>\n\x20\x20</head>\n\n\x20\x20<body>\n\x20
+SF:\x20\x20\x20<!--\x20Navigation\x20-->\n\x20\x20\x20\x20<nav\x20class=\"
+SF:navbar\x20navbar-expand-md\x20navbar-dark\x20bg-dark\">\n\x20\x20\x20\x
+SF:20\x20\x20<div\x20class=\"container\">\n\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0<a\x20class=\"navbar-brand\"\x20href=\"/\"><span\x20class=\"\">MD2PDF<
+SF:/span></a>\n\x20\x20\x20\x20\x20\x20</div>\n\x20\x20\x20\x20</nav>\n\n\
+SF:x20\x20\x20\x20<!--\x20Page\x20Content\x20-->\n\x20\x20\x20\x20<div\x20
+SF:class=\"container\">\n\x20\x20\x20\x20\x20\x20<div\x20class=\"\">\n\x20
+SF:\x20\x20\x20\x20\x20\x20\x20<div\x20class=\"card\x20mt-4\">\n\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\x20\x20<textarea\x20class=\"form-control\"\x20na
+SF:me=\"md\"\x20id=\"md\"></textarea>\n\x20\x20\x20\x20\x20\x20\x20\x20</d
+SF:iv>\n\n\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\"mt-3\x20")%r(HTT
+SF:POptions,69,"HTTP/1\.0\x20200\x20OK\r\nContent-Type:\x20text/html;\x20c
+SF:harset=utf-8\r\nAllow:\x20HEAD,\x20OPTIONS,\x20GET\r\nContent-Length:\x
+SF:200\r\n\r\n")%r(RTSPRequest,69,"RTSP/1\.0\x20200\x20OK\r\nContent-Type:
+SF:\x20text/html;\x20charset=utf-8\r\nAllow:\x20HEAD,\x20OPTIONS,\x20GET\r
+SF:\nContent-Length:\x200\r\n\r\n")%r(FourOhFourRequest,13F,"HTTP/1\.0\x20
+SF:404\x20NOT\x20FOUND\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\n
+SF:Content-Length:\x20232\r\n\r\n<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C//
+SF:DTD\x20HTML\x203\.2\x20Final//EN\">\n<title>404\x20Not\x20Found</title>
+SF:\n<h1>Not\x20Found</h1>\n<p>The\x20requested\x20URL\x20was\x20not\x20fo
+SF:und\x20on\x20the\x20server\.\x20If\x20you\x20entered\x20the\x20URL\x20m
+SF:anually\x20please\x20check\x20your\x20spelling\x20and\x20try\x20again\.
+SF:</p>\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port5000-TCP:V=7.94SVN%I=7%D=5/17%Time=6647BB5E%P=x86_64-pc-linux-gnu%r
+SF:(GetRequest,A91,"HTTP/1\.0\x20200\x20OK\r\nContent-Type:\x20text/html;\
+SF:x20charset=utf-8\r\nContent-Length:\x202624\r\n\r\n<!DOCTYPE\x20html>\n
+SF:<html\x20lang=\"en\">\n\x20\x20<head>\n\x20\x20\x20\x20<meta\x20charset
+SF:=\"utf-8\"\x20/>\n\x20\x20\x20\x20<meta\n\x20\x20\x20\x20\x20\x20name=\
+SF:"viewport\"\n\x20\x20\x20\x20\x20\x20content=\"width=device-width,\x20i
+SF:nitial-scale=1,\x20shrink-to-fit=no\"\n\x20\x20\x20\x20/>\n\n\x20\x20\x
+SF:20\x20<link\n\x20\x20\x20\x20\x20\x20rel=\"stylesheet\"\n\x20\x20\x20\x
+SF:20\x20\x20href=\"\./assets/codemirror\.min\.css\"/>\n\n\x20\x20\x20\x20
+SF:<link\n\x20\x20\x20\x20\x20\x20rel=\"stylesheet\"\n\x20\x20\x20\x20\x20
+SF:\x20href=\"\./assets/bootstrap\.min\.css\"/>\n\n\x20\x20\x20\x20\n\x20\
+SF:x20\x20\x20<title>MD2PDF</title>\n\x20\x20</head>\n\n\x20\x20<body>\n\x
+SF:20\x20\x20\x20<!--\x20Navigation\x20-->\n\x20\x20\x20\x20<nav\x20class=
+SF:\"navbar\x20navbar-expand-md\x20navbar-dark\x20bg-dark\">\n\x20\x20\x20
+SF:\x20\x20\x20<div\x20class=\"container\">\n\x20\x20\x20\x20\x20\x20\x20\
+SF:x20<a\x20class=\"navbar-brand\"\x20href=\"/\"><span\x20class=\"\">MD2PD
+SF:F</span></a>\n\x20\x20\x20\x20\x20\x20</div>\n\x20\x20\x20\x20</nav>\n\
+SF:n\x20\x20\x20\x20<!--\x20Page\x20Content\x20-->\n\x20\x20\x20\x20<div\x
+SF:20class=\"container\">\n\x20\x20\x20\x20\x20\x20<div\x20class=\"\">\n\x
+SF:20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\"card\x20mt-4\">\n\x20\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20class=\"form-control\"\x20
+SF:name=\"md\"\x20id=\"md\"></textarea>\n\x20\x20\x20\x20\x20\x20\x20\x20<
+SF:/div>\n\n\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\"mt-3\x20")%r(R
+SF:TSPRequest,69,"RTSP/1\.0\x20200\x20OK\r\nContent-Type:\x20text/html;\x2
+SF:0charset=utf-8\r\nAllow:\x20GET,\x20HEAD,\x20OPTIONS\r\nContent-Length:
+SF:\x200\r\n\r\n")%r(HTTPOptions,69,"HTTP/1\.0\x20200\x20OK\r\nContent-Typ
+SF:e:\x20text/html;\x20charset=utf-8\r\nAllow:\x20GET,\x20HEAD,\x20OPTIONS
+SF:\r\nContent-Length:\x200\r\n\r\n")%r(FourOhFourRequest,13F,"HTTP/1\.0\x
+SF:20404\x20NOT\x20FOUND\r\nContent-Type:\x20text/html;\x20charset=utf-8\r
+SF:\nContent-Length:\x20232\r\n\r\n<!DOCTYPE\x20HTML\x20PUBLIC\x20\"-//W3C
+SF://DTD\x20HTML\x203\.2\x20Final//EN\">\n<title>404\x20Not\x20Found</titl
+SF:e>\n<h1>Not\x20Found</h1>\n<p>The\x20requested\x20URL\x20was\x20not\x20
+SF:found\x20on\x20the\x20server\.\x20If\x20you\x20entered\x20the\x20URL\x2
+SF:0manually\x20please\x20check\x20your\x20spelling\x20and\x20try\x20again
+SF:\.</p>\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri May 17 22:17:36 2024 -- 1 IP address (1 host up) scanned in 7.95 seconds

