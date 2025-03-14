@@ -1,0 +1,68 @@
+# Nmap 7.94SVN scan initiated Thu Dec 26 23:08:52 2024 as: /usr/lib/nmap/nmap -v -sC -sV -p80,135,139,445,3389,5985,7680,47001,49664,49665,49666,49667,49668,49669,49670,49676,61777 -oN nmap 10.10.54.245
+Nmap scan report for cyberlens.thm (10.10.54.245)
+Host is up (0.027s latency).
+
+PORT      STATE SERVICE       VERSION
+80/tcp    open  http          Apache httpd 2.4.57 ((Win64))
+|_http-title: CyberLens: Unveiling the Hidden Matrix
+| http-methods: 
+|   Supported Methods: GET POST OPTIONS HEAD TRACE
+|_  Potentially risky methods: TRACE
+|_http-server-header: Apache/2.4.57 (Win64)
+135/tcp   open  msrpc         Microsoft Windows RPC
+139/tcp   open  netbios-ssn   Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds?
+3389/tcp  open  ms-wbt-server Microsoft Terminal Services
+|_ssl-date: 2024-12-26T22:09:58+00:00; 0s from scanner time.
+| ssl-cert: Subject: commonName=CyberLens
+| Issuer: commonName=CyberLens
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2024-12-25T22:04:57
+| Not valid after:  2025-06-26T22:04:57
+| MD5:   a91c:5dea:da5d:2f20:00d0:26cf:159e:d84c
+|_SHA-1: e8ef:ae0a:71e2:0e5d:cf8c:2a86:6e0c:6f5a:b216:e26c
+| rdp-ntlm-info: 
+|   Target_Name: CYBERLENS
+|   NetBIOS_Domain_Name: CYBERLENS
+|   NetBIOS_Computer_Name: CYBERLENS
+|   DNS_Domain_Name: CyberLens
+|   DNS_Computer_Name: CyberLens
+|   Product_Version: 10.0.17763
+|_  System_Time: 2024-12-26T22:09:48+00:00
+5985/tcp  open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-title: Not Found
+|_http-server-header: Microsoft-HTTPAPI/2.0
+7680/tcp  open  pando-pub?
+47001/tcp open  http          Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49664/tcp open  msrpc         Microsoft Windows RPC
+49665/tcp open  msrpc         Microsoft Windows RPC
+49666/tcp open  msrpc         Microsoft Windows RPC
+49667/tcp open  msrpc         Microsoft Windows RPC
+49668/tcp open  msrpc         Microsoft Windows RPC
+49669/tcp open  msrpc         Microsoft Windows RPC
+49670/tcp open  msrpc         Microsoft Windows RPC
+49676/tcp open  msrpc         Microsoft Windows RPC
+61777/tcp open  http          Jetty 8.y.z-SNAPSHOT
+|_http-server-header: Jetty(8.y.z-SNAPSHOT)
+| http-methods: 
+|   Supported Methods: POST GET PUT OPTIONS HEAD
+|_  Potentially risky methods: PUT
+|_http-cors: HEAD GET
+|_http-title: Welcome to the Apache Tika 1.17 Server
+Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode: 
+|   3:1:1: 
+|_    Message signing enabled but not required
+| smb2-time: 
+|   date: 2024-12-26T22:09:48
+|_  start_date: N/A
+
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Dec 26 23:09:59 2024 -- 1 IP address (1 host up) scanned in 67.42 seconds

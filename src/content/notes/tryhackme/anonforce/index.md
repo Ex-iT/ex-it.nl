@@ -92,7 +92,7 @@ The `backup.txt` file seems to contain the `/etc/shadow` file with the root hash
 
 Lets brute force the root hash with `hashcat`:
 ```bash
-ashcat '$6$07nYFaYf$F4VMaegmz7dKjsTukBLh6cP01iMmL7CiQDt1ycIm6a.bsOIBp0DwXVb9XI2EtULXJzBtaMZMNd2tV4uob5RVM0' /usr/share/wordlists/rockyou.txt
+hashcat '$6$07nYFaYf$F4VMaegmz7dKjsTukBLh6cP01iMmL7CiQDt1ycIm6a.bsOIBp0DwXVb9XI2EtULXJzBtaMZMNd2tV4uob5RVM0' /usr/share/wordlists/rockyou.txt
 ...[snip]...
 $6$07nYFaYf$F4VMaegmz7dKjsTukBLh6cP01iMmL7CiQDt1ycIm6a.bsOIBp0DwXVb9XI2EtULXJzBtaMZMNd2tV4uob5RVM0:hikari
 ...[snip]...

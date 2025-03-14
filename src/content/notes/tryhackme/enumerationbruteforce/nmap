@@ -1,0 +1,18 @@
+# Nmap 7.94SVN scan initiated Sat Aug  3 01:00:08 2024 as: nmap -v -sC -sV -p80 -oN nmap 10.10.72.65
+Nmap scan report for 10.10.72.65
+Host is up (0.024s latency).
+
+PORT   STATE SERVICE VERSION
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+|_http-title: Enumeration & Brute-force Lab
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Aug  3 01:00:15 2024 -- 1 IP address (1 host up) scanned in 7.17 seconds
