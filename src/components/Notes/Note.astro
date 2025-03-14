@@ -47,7 +47,7 @@ const { Content } = await render(note)
         </div>
       </article>
 
-      {data.tags && <Tags tags={data.tags} />}
+      {data.tags && data.tags.length > 0 && <Tags tags={data.tags} />}
     </section>
   </div>
 </PageLayout>
