@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components'
+import Logo from '../App/Logo.astro'
 
 interface Props {
   id: string
@@ -20,17 +21,21 @@ const { id, open = false } = Astro.props
   {open}
   closedby="any"
 >
-  <section class="flex flex-col container-global pt-5 text-primary">
-    <slot name="close">
-      <form class="ml-auto" method="dialog">
-        <button class="w-8 h-8">
-          <Icon
-            class="w-6 h-6 hover:text-secondary hover:rotate-90 transition-all"
-            name="material-symbols:close"
-          />
-        </button>
-      </form>
-    </slot>
+  <section class="flex flex-col container-global pt-[18px] text-primary">
+    <div class="flex items-center mb-2">
+      <Logo />
+      <slot name="close">
+        <form class="ml-auto leading-4" method="dialog">
+          <button>
+            <Icon
+              class="w-auto h-6 hover:text-secondary hover:rotate-90 transition-all"
+              name="material-symbols:close"
+            />
+            <span class="sr-only">Close</span>
+          </button>
+        </form>
+      </slot>
+    </div>
     <slot />
   </section>
 </dialog>

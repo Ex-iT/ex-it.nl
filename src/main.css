@@ -48,9 +48,9 @@
     @apply hover:text-secondary transition-all;
   }
 
-  h1::first-letter,
-  h2::first-letter,
-  h3::first-letter,
+  h1:not(.no-highlight)::first-letter,
+  h2:not(.no-highlight)::first-letter,
+  h3:not(.no-highlight)::first-letter,
   .highlight-first-letter::first-letter {
     @apply text-highlight;
   }

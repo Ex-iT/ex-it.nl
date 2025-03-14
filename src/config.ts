@@ -13,12 +13,14 @@ interface SiteConfig {
   filesContentUrl: string
 }
 
+export interface NavBarConfigLink {
+  name: string
+  url: string
+  target?: string
+}
+
 interface NavBarConfig {
-  links: {
-    name: string
-    url: string
-    target?: string
-  }[]
+  links: NavBarConfigLink[]
 }
 
 interface SocialLink {

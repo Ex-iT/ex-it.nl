@@ -1,0 +1,12 @@
+---
+import { Icon } from 'astro-icon/components'
+import { siteConfig } from '../../config'
+---
+
+<a href="/" class="text-xl font-bold flex items-center transition-all">
+  <Icon
+    class="w-6 h-6 mr-2 text-highlight"
+    name="material-symbols:exit-to-app-sharp"
+  />
+  <h1 class="no-highlight">{siteConfig.title}</h1>
+</a>

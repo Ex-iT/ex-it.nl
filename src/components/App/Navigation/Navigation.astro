@@ -1,0 +1,52 @@
+---
+import { navBarConfig, siteConfig } from '../../../config'
+import { Icon } from 'astro-icon/components'
+import IconButton from '../../Buttons/IconButton.astro'
+import Drawer from '../../Drawer/Drawer.astro'
+import Link from './Link.astro'
+---
+
+<nav class="ml-auto max-sm:hidden">
+  <ul class="flex gap-8">
+    {
+      navBarConfig.links.map((link) => (
+        <li>
+          <Link {link} class="hover:text-secondary transition-all" />
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<IconButton
+  id="trigger-nav-drawer"
+  class="ml-auto hidden max-sm:flex relative group"
+>
+  <span class="sr-only">Menu</span>
+  <Icon class="w-6 h-6 m-auto" name="material-symbols:menu-rounded" />
+</IconButton>
+<Drawer id="nav-drawer">
+  <nav>
+    <ul>
+      {
+        navBarConfig.links.map((link) => (
+          <li class="mb-4 border-b border-gray-300 dark:border-gray-700">
+            <Link
+              {link}
+              class="flex items-center p-2 hover:bg-hover focus:bg-hover hover:hover:text-primary transition-all"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</Drawer>
+
+<script>
+  const drawerTrigger = document.getElementById(
+    'trigger-nav-drawer'
+  ) as HTMLButtonElement
+  const drawer = document.getElementById('nav-drawer') as HTMLDialogElement
+
+  drawerTrigger.addEventListener('click', () => drawer.showModal())
+</script>

@@ -1,0 +1,29 @@
+---
+import type { NavBarConfigLink } from '../../../config'
+
+interface Props {
+  link: NavBarConfigLink
+  class?: string
+}
+
+const { link, class: className } = Astro.props
+
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1) // remove the first "/"
+
+function isActiveLink(url: string) {
+  if (url === '/') {
+    return currentPath === ''
+  }
+
+  return currentPath.startsWith(url.slice(1))
+}
+---
+
+<a
+  class:list={[isActiveLink(link.url) && 'font-bold underline', className]}
+  href={link.url}
+  target={link.target}
+>
+  {link.name}
+</a>
