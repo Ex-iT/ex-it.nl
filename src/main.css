@@ -74,14 +74,18 @@
         prose-h1:text-3xl prose-h1:md:text-4xl
         prose-h2:scroll-my-20 prose-h3:scroll-my-20;
   }
+
+  .article-content a {
+    @apply break-all;
+  }
 }
 
-/* Add language label to code blocks */
+/* Astro code overrides for Shiki (https://shiki.style/) */
 pre.astro-code {
   @apply whitespace-pre;
 }
 
-pre.astro-code[data-language] {
+/* pre.astro-code[data-language] {
   @apply relative;
 }
 
@@ -92,4 +96,4 @@ pre.astro-code[data-language]::after {
 
 pre.astro-code[data-language]:hover::after {
   @apply opacity-0 transition-all;
-}
+} */
