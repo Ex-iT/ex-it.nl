@@ -57,6 +57,26 @@
 }
 
 @layer components {
+  /*
+    Shiki (https://shiki.style/) wrapper class and language
+    label are added by the language-wrapper transformer
+  */
+  .shiki-wrapper {
+    @apply relative;
+  }
+
+  .shiki-wrapper .lang {
+    @apply rounded bg-back/50 text-sm top-1 right-1 absolute py-1 px-2 transition-all;
+  }
+
+  .shiki-wrapper:hover .lang,
+  .shiki-wrapper:focus-within .lang {
+    @apply opacity-0 transition-all;
+  }
+
+  .shiki-wrapper .astro-code {
+    @apply whitespace-pre;
+  }
 }
 
 @layer utilities {
@@ -79,21 +99,3 @@
     @apply break-all;
   }
 }
-
-/* Astro code overrides for Shiki (https://shiki.style/) */
-pre.astro-code {
-  @apply whitespace-pre;
-}
-
-/* pre.astro-code[data-language] {
-  @apply relative;
-}
-
-pre.astro-code[data-language]::after {
-  @apply rounded bg-back/30 text-sm top-1 right-1 absolute py-1 px-2 transition-all;
-  content: attr(data-language);
-}
-
-pre.astro-code[data-language]:hover::after {
-  @apply opacity-0 transition-all;
-} */

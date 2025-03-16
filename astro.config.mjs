@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import icon from 'astro-icon'
 import { siteConfig } from './src/config'
+import { transformerLanguageWrapper } from './src/utils/transformers/language-wrapper'
 
 export default defineConfig({
   site: siteConfig.site,
@@ -29,6 +30,7 @@ export default defineConfig({
         light: 'dracula-soft',
         dark: 'dracula',
       },
+      transformers: [transformerLanguageWrapper()],
     },
   },
   devToolbar: {
