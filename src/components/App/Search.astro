@@ -42,6 +42,10 @@ import PageFindSearch from 'astro-pagefind/components/Search'
       @apply bg-back border-primary;
     }
 
+    & :global(.pagefind-ui__result) {
+      @apply wrap-anywhere;
+    }
+
     & :global(.pagefind-ui__results-area) {
       @apply overflow-auto max-h-[50vh] pr-4;
     }
@@ -66,6 +70,10 @@ import PageFindSearch from 'astro-pagefind/components/Search'
     & :global(.pagefind-ui__search-clear:hover),
     & :global(.pagefind-ui__search-clear:focus) {
       @apply text-secondary;
+    }
+
+    & :global(.pagefind-ui__result-thumb) {
+      @apply min-w-24;
     }
 
     & :global(.pagefind-ui__button) {

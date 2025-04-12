@@ -28,6 +28,12 @@ export default {
           transitionBehavior: 'allow-discrete',
         },
       })
+
+      addUtilities({
+        '.wrap-anywhere': {
+          'overflow-wrap': 'anywhere',
+        },
+      })
     }),
   ],
 }

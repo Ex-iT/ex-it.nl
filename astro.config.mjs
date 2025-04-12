@@ -10,19 +10,14 @@ import { transformerLanguageWrapper } from './src/utils/transformers/language-wr
 export default defineConfig({
   site: siteConfig.site,
   server: { port: 3000 },
-  build: {
-    format: 'directory',
-  },
+  build: { format: 'directory' },
+  devToolbar: { enabled: false },
   integrations: [
     mdx(),
     pagefind(),
     sitemap(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
-    icon({
-      iconDir: 'src/assets/icons',
-    }),
+    tailwind({ applyBaseStyles: false }),
+    icon({ iconDir: 'src/assets/icons' }),
   ],
   markdown: {
     shikiConfig: {
@@ -32,8 +27,5 @@ export default defineConfig({
       },
       transformers: [transformerLanguageWrapper()],
     },
-  },
-  devToolbar: {
-    enabled: false,
   },
 })
