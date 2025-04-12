@@ -4,7 +4,7 @@ description: 'LFI to get SSH credentials and escalating to root with socat'
 pubDate: 2021-06-26
 category: 'tryhackme'
 tags: []
-image: ''
+image: 'https://tryhackme-images.s3.amazonaws.com/room-icons/5e2656cb5a909ddf63395dd7e7a377ad.png'
 ---
 
 ## LFI

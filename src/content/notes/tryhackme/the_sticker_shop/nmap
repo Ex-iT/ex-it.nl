@@ -1,0 +1,86 @@
+# Nmap 7.94SVN scan initiated Mon Dec 16 11:12:43 2024 as: /usr/lib/nmap/nmap -v -sC -sV -p22,8080 -oN nmap 10.10.216.222
+Nmap scan report for 10.10.216.222
+Host is up (0.026s latency).
+
+PORT     STATE SERVICE    VERSION
+22/tcp   open  ssh        OpenSSH 8.2p1 Ubuntu 4ubuntu0.9 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 b2:54:8c:e2:d7:67:ab:8f:90:b3:6f:52:c2:73:37:69 (RSA)
+|   256 14:29:ec:36:95:e5:64:49:39:3f:b4:ec:ca:5f:ee:78 (ECDSA)
+|_  256 19:eb:1f:c9:67:92:01:61:0c:14:fe:71:4b:0d:50:40 (ED25519)
+8080/tcp open  http-proxy Werkzeug/3.0.1 Python/3.8.10
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Server: Werkzeug/3.0.1 Python/3.8.10
+|     Date: Mon, 16 Dec 2024 10:12:49 GMT
+|     Content-Type: text/html; charset=utf-8
+|     Content-Length: 1655
+|     Connection: close
+|     <!DOCTYPE html>
+|     <html>
+|     <head>
+|     <title>Cat Sticker Shop</title>
+|     <style>
+|     body {
+|     font-family: Arial, sans-serif;
+|     margin: 0;
+|     padding: 0;
+|     header {
+|     background-color: #333;
+|     color: #fff;
+|     text-align: center;
+|     padding: 10px;
+|     header ul {
+|     list-style: none;
+|     padding: 0;
+|     header li {
+|     display: inline;
+|     margin-right: 20px;
+|     header a {
+|     text-decoration: none;
+|     color: #fff;
+|     font-weight: bold;
+|     .content {
+|     padding: 20px;
+|_    .product {
+| http-methods: 
+|_  Supported Methods: OPTIONS HEAD GET
+|_http-title: Cat Sticker Shop
+|_http-server-header: Werkzeug/3.0.1 Python/3.8.10
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8080-TCP:V=7.94SVN%I=7%D=12/16%Time=675FFD22%P=x86_64-pc-linux-gnu%
+SF:r(GetRequest,726,"HTTP/1\.1\x20200\x20OK\r\nServer:\x20Werkzeug/3\.0\.1
+SF:\x20Python/3\.8\.10\r\nDate:\x20Mon,\x2016\x20Dec\x202024\x2010:12:49\x
+SF:20GMT\r\nContent-Type:\x20text/html;\x20charset=utf-8\r\nContent-Length
+SF::\x201655\r\nConnection:\x20close\r\n\r\n<!DOCTYPE\x20html>\n<html>\n<h
+SF:ead>\n\x20\x20\x20\x20<title>Cat\x20Sticker\x20Shop</title>\n\x20\x20\x
+SF:20\x20<style>\n\x20\x20\x20\x20\x20\x20\x20\x20body\x20{\n\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20font-family:\x20Arial,\x20sans-serif
+SF:;\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin:\x200;\n\x20\
+SF:x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200;\n\x20\x20\x20
+SF:\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20\x20\x20header\x20{\n\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20background-color:\x20#333;
+SF:\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20color:\x20#fff;\n\x20
+SF:\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-align:\x20center;\n\x2
+SF:0\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x2010px;\n\x20\x2
+SF:0\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20\x20\x20header\x20u
+SF:l\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20list-style:\x20
+SF:none;\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20padding:\x200;\n
+SF:\x20\x20\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x20\x20\x20head
+SF:er\x20li\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20display:
+SF:\x20inline;\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20margin-rig
+SF:ht:\x2020px;\n\x20\x20\x20\x20\x20\x20\x20\x20}\n\x20\x20\x20\x20\x20\x
+SF:20\x20\x20header\x20a\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20text-decoration:\x20none;\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20color:\x20#fff;\n\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:x20font-weight:\x20bold;\n\x20\x20\x20\x20\x20\x20\x20\x20}\n\x20\x20\x
+SF:20\x20\x20\x20\x20\x20\.content\x20{\n\x20\x20\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20padding:\x2020px;\n\x20\x20\x20\x20\x20\x20\x20\x20}\n\x
+SF:20\x20\x20\x20\x20\x20\x20\x20\.product\x20{\n\x20\x20\x20\x20\x20\x20\
+SF:x20\x20\x20\x20\x20\x20bo");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Mon Dec 16 11:14:18 2024 -- 1 IP address (1 host up) scanned in 95.08 seconds

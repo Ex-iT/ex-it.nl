@@ -1,0 +1,116 @@
+# Nmap 7.94SVN scan initiated Thu Dec 19 09:23:29 2024 as: /usr/lib/nmap/nmap -v -sC -sV -p22,80,443,3306 -oN nmap 10.10.175.132
+Nmap scan report for 10.10.175.132
+Host is up (0.025s latency).
+
+PORT     STATE SERVICE  VERSION
+22/tcp   open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.11 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 1d:06:67:4a:47:eb:58:81:28:56:bc:4a:df:b7:88:8d (RSA)
+|   256 8d:38:ba:5b:24:ef:2b:45:77:0f:33:d7:03:85:e6:94 (ECDSA)
+|_  256 78:88:8d:6a:07:34:b1:6f:ec:8c:6e:0f:e6:85:94:f1 (ED25519)
+80/tcp   open  http     WebSockify Python/3.8.10
+|_http-server-header: WebSockify Python/3.8.10
+|_http-title: Error response
+| fingerprint-strings: 
+|   GetRequest: 
+|     HTTP/1.1 405 Method Not Allowed
+|     Server: WebSockify Python/3.8.10
+|     Date: Thu, 19 Dec 2024 08:23:33 GMT
+|     Connection: close
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 472
+|     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+|     "http://www.w3.org/TR/html4/strict.dtd">
+|     <html>
+|     <head>
+|     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+|     <title>Error response</title>
+|     </head>
+|     <body>
+|     <h1>Error response</h1>
+|     <p>Error code: 405</p>
+|     <p>Message: Method Not Allowed.</p>
+|     <p>Error code explanation: 405 - Specified method is invalid for this resource.</p>
+|     </body>
+|     </html>
+|   HTTPOptions: 
+|     HTTP/1.1 501 Unsupported method ('OPTIONS')
+|     Server: WebSockify Python/3.8.10
+|     Date: Thu, 19 Dec 2024 08:23:33 GMT
+|     Connection: close
+|     Content-Type: text/html;charset=utf-8
+|     Content-Length: 500
+|     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+|     "http://www.w3.org/TR/html4/strict.dtd">
+|     <html>
+|     <head>
+|     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+|     <title>Error response</title>
+|     </head>
+|     <body>
+|     <h1>Error response</h1>
+|     <p>Error code: 501</p>
+|     <p>Message: Unsupported method ('OPTIONS').</p>
+|     <p>Error code explanation: HTTPStatus.NOT_IMPLEMENTED - Server does not support this operation.</p>
+|     </body>
+|_    </html>
+443/tcp  open  ssl/http Apache httpd
+|_http-title: Brick by Brick
+|_http-generator: WordPress 6.5
+|_ssl-date: TLS randomness does not represent time
+|_http-server-header: Apache
+| ssl-cert: Subject: organizationName=Internet Widgits Pty Ltd/stateOrProvinceName=Some-State/countryName=US
+| Issuer: organizationName=Internet Widgits Pty Ltd/stateOrProvinceName=Some-State/countryName=US
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2024-04-02T11:59:14
+| Not valid after:  2025-04-02T11:59:14
+| MD5:   f1df:99bc:d5ab:5a5a:5709:5099:4add:a385
+|_SHA-1: 1f26:54bb:e2c5:b4a1:1f62:5ea0:af00:0261:35da:23c3
+| tls-alpn: 
+|   h2
+|_  http/1.1
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+| http-robots.txt: 1 disallowed entry 
+|_/wp-admin/
+3306/tcp open  mysql    MySQL (unauthorized)
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port80-TCP:V=7.94SVN%I=7%D=12/19%Time=6763D805%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,291,"HTTP/1\.1\x20405\x20Method\x20Not\x20Allowed\r\nServer:
+SF:\x20WebSockify\x20Python/3\.8\.10\r\nDate:\x20Thu,\x2019\x20Dec\x202024
+SF:\x2008:23:33\x20GMT\r\nConnection:\x20close\r\nContent-Type:\x20text/ht
+SF:ml;charset=utf-8\r\nContent-Length:\x20472\r\n\r\n<!DOCTYPE\x20HTML\x20
+SF:PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01//EN\"\n\x20\x20\x20\x20\x20\x2
+SF:0\x20\x20\"http://www\.w3\.org/TR/html4/strict\.dtd\">\n<html>\n\x20\x2
+SF:0\x20\x20<head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x20http-equiv=\"
+SF:Content-Type\"\x20content=\"text/html;charset=utf-8\">\n\x20\x20\x20\x2
+SF:0\x20\x20\x20\x20<title>Error\x20response</title>\n\x20\x20\x20\x20</he
+SF:ad>\n\x20\x20\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\
+SF:x20response</h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20
+SF:405</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Method\x20Not\x
+SF:20Allowed\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code\x20ex
+SF:planation:\x20405\x20-\x20Specified\x20method\x20is\x20invalid\x20for\x
+SF:20this\x20resource\.</p>\n\x20\x20\x20\x20</body>\n</html>\n")%r(HTTPOp
+SF:tions,2B9,"HTTP/1\.1\x20501\x20Unsupported\x20method\x20\('OPTIONS'\)\r
+SF:\nServer:\x20WebSockify\x20Python/3\.8\.10\r\nDate:\x20Thu,\x2019\x20De
+SF:c\x202024\x2008:23:33\x20GMT\r\nConnection:\x20close\r\nContent-Type:\x
+SF:20text/html;charset=utf-8\r\nContent-Length:\x20500\r\n\r\n<!DOCTYPE\x2
+SF:0HTML\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01//EN\"\n\x20\x20\x20\x
+SF:20\x20\x20\x20\x20\"http://www\.w3\.org/TR/html4/strict\.dtd\">\n<html>
+SF:\n\x20\x20\x20\x20<head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x20http
+SF:-equiv=\"Content-Type\"\x20content=\"text/html;charset=utf-8\">\n\x20\x
+SF:20\x20\x20\x20\x20\x20\x20<title>Error\x20response</title>\n\x20\x20\x2
+SF:0\x20</head>\n\x20\x20\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<
+SF:h1>Error\x20response</h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20
+SF:code:\x20501</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Unsupp
+SF:orted\x20method\x20\('OPTIONS'\)\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x2
+SF:0<p>Error\x20code\x20explanation:\x20HTTPStatus\.NOT_IMPLEMENTED\x20-\x
+SF:20Server\x20does\x20not\x20support\x20this\x20operation\.</p>\n\x20\x20
+SF:\x20\x20</body>\n</html>\n");
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Thu Dec 19 09:24:59 2024 -- 1 IP address (1 host up) scanned in 89.89 seconds

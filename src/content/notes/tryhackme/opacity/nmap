@@ -1,0 +1,25 @@
+# Nmap 7.94 scan initiated Wed Jun 14 15:44:01 2023 as: nmap -v -sC -sV -p22,80 -oN nmap 10.10.254.116
+Nmap scan report for 10.10.254.116
+Host is up (0.038s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.5 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 0f:ee:29:10:d9:8e:8c:53:e6:4d:e3:67:0c:6e:be:e3 (RSA)
+|   256 95:42:cd:fc:71:27:99:39:2d:00:49:ad:1b:e4:cf:0e (ECDSA)
+|_  256 ed:fe:9c:94:ca:9c:08:6f:f2:5c:a6:cf:4d:3c:8e:5b (ED25519)
+80/tcp open  http    Apache httpd 2.4.41 ((Ubuntu))
+| http-title: Login
+|_Requested resource was login.php
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Jun 14 15:44:12 2023 -- 1 IP address (1 host up) scanned in 11.42 seconds

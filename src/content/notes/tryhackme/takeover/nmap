@@ -1,0 +1,37 @@
+# Nmap 7.94SVN scan initiated Wed Aug  7 23:38:55 2024 as: nmap -v -sC -sV -p22,80,443 -oN nmap 10.10.140.190
+Nmap scan report for futurevera.thm (10.10.140.190)
+Host is up (0.028s latency).
+
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 8.2p1 Ubuntu 4ubuntu0.4 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 dd:29:a7:0c:05:69:1f:f6:26:0a:d9:28:cd:40:f0:20 (RSA)
+|   256 cb:2e:a8:6d:03:66:e9:70:eb:96:e1:f5:ba:25:cb:4e (ECDSA)
+|_  256 50:d3:4b:a8:a2:4d:1d:79:e1:7d:ac:bb:ff:0b:24:13 (ED25519)
+80/tcp  open  http     Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Did not follow redirect to https://futurevera.thm/
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+443/tcp open  ssl/http Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: FutureVera
+|_ssl-date: TLS randomness does not represent time
+| http-methods: 
+|_  Supported Methods: HEAD GET POST OPTIONS
+| tls-alpn: 
+|_  http/1.1
+| ssl-cert: Subject: commonName=futurevera.thm/organizationName=Futurevera/stateOrProvinceName=Oregon/countryName=US
+| Issuer: commonName=futurevera.thm/organizationName=Futurevera/stateOrProvinceName=Oregon/countryName=US
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2022-03-13T10:05:19
+| Not valid after:  2023-03-13T10:05:19
+| MD5:   2e8d:6097:6b23:188c:06d5:f2cd:8def:dd3a
+|_SHA-1: 8023:fcfc:5e63:a29b:3d5e:eaaf:8f70:8b35:d8eb:c120
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/bin/../share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Wed Aug  7 23:39:11 2024 -- 1 IP address (1 host up) scanned in 15.58 seconds
