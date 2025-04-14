@@ -1,0 +1,19 @@
+# Nmap 7.94SVN scan initiated Sat Dec  7 20:36:34 2024 as: /usr/lib/nmap/nmap -v -sC -sV -p22,80 -oN nmap 10.129.46.89
+Nmap scan report for 10.129.46.89
+Host is up (0.017s latency).
+
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.10 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 3e:f8:b9:68:c8:eb:57:0f:cb:0b:47:b9:86:50:83:eb (ECDSA)
+|_  256 a2:ea:6e:e1:b6:d7:e7:c5:86:69:ce:ba:05:9e:38:13 (ED25519)
+80/tcp open  http    Apache httpd
+|_http-title: Did not follow redirect to http://linkvortex.htb/
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-server-header: Apache
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+Read data files from: /usr/share/nmap
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sat Dec  7 20:36:42 2024 -- 1 IP address (1 host up) scanned in 7.52 seconds
