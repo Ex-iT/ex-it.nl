@@ -19,5 +19,12 @@
     "url": "https://ishetaldonderdag.nl/",
     "description": "A gimmicky website to tell if its Thursday already.",
     "avatar": "/logos/ishetaldonderdag.png"
+  },
+  {
+    "id": 4,
+    "title": "P2K2",
+    "url": "https://p2k2.ex-it.nl/",
+    "description": "Real time emergency services messages (P2000) for the Netherlands.",
+    "avatar": "/logos/p2k2.png"
   }
 ]
