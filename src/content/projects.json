@@ -15,13 +15,20 @@
   },
   {
     "id": 3,
+    "title": "TTS Chat (LM Studio + Kokoro)",
+    "url": "https://github.com/Ex-iT/TTS-Chat",
+    "description": "Modern chat interface for AI chat with TTS. Powered by LM Studio and Kokoro.",
+    "avatar": "/logos/tts-chat.png"
+  },
+  {
+    "id": 4,
     "title": "IsHetAlDonderdag.nl",
     "url": "https://ishetaldonderdag.nl/",
     "description": "A gimmicky website to tell if its Thursday already.",
     "avatar": "/logos/ishetaldonderdag.png"
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "P2K2",
     "url": "https://p2k2.ex-it.nl/",
     "description": "Real time emergency services messages (P2000) for the Netherlands.",
