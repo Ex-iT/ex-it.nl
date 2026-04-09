@@ -22,13 +22,20 @@
   },
   {
     "id": 4,
+    "title": "Save-O-Clock",
+    "url": "https://github.com/Ex-iT/save-o-clock",
+    "description": "A multi-monitor Windows screensaver in .NET that renders a clock or custom HTML.",
+    "avatar": "/logos/soc.png"
+  },
+  {
+    "id": 5,
     "title": "IsHetAlDonderdag.nl",
     "url": "https://ishetaldonderdag.nl/",
     "description": "A gimmicky website to tell if its Thursday already.",
     "avatar": "/logos/ishetaldonderdag.png"
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "P2K2",
     "url": "https://p2k2.ex-it.nl/",
     "description": "Real time emergency services messages (P2000) for the Netherlands.",
