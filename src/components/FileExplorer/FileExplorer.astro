@@ -13,7 +13,7 @@ interface Props {
 const { noteId } = Astro.props
 
 let files: File[] = []
-let hasError = true
+let hasError = false
 const fileListResponse = await fetchFileList(noteId)
 
 if (fileListResponse && fileListResponse.status === 200) {
