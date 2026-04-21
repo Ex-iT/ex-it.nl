@@ -40,5 +40,12 @@
     "url": "https://p2k2.ex-it.nl/",
     "description": "Real time emergency services messages (P2000) for the Netherlands.",
     "avatar": "/logos/p2k2.png"
+  },
+  {
+    "id": 7,
+    "title": "PS-Fysio.nl",
+    "url": "https://ps-fysio.nl/",
+    "description": "A fast, responsive website made with Astro and TailwindCSS for a physiotherapy practice.",
+    "avatar": "/logos/ps-fysio_logo.png"
   }
 ]

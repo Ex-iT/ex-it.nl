@@ -10,6 +10,7 @@ interface SiteConfig {
   site: string
   pageSize: number
   latestNotesSize: number
+  filesRepoUrl: string
   filesContentUrl: string
 }
 
@@ -42,6 +43,7 @@ export const siteConfig: SiteConfig = {
   site: 'https://ex-it.nl',
   pageSize: 10,
   latestNotesSize: 3,
+  filesRepoUrl: 'https://github.com/Ex-iT/ex-it.nl/tree/main/src/content/notes',
   filesContentUrl:
     'https://api.github.com/repos/Ex-iT/ex-it.nl/contents/src/content/notes',
 }

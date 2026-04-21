@@ -4,6 +4,7 @@ import fetchFileList from '../../utils/fetchFileList.ts'
 import type { File } from '../../utils/fetchFileList.ts'
 import FileListing from './FileListing.astro'
 import { Icon } from 'astro-icon/components'
+import { siteConfig } from '../../config'
 
 interface Props {
   noteId: CollectionEntry<'notes'>['id']
@@ -12,6 +13,7 @@ interface Props {
 const { noteId } = Astro.props
 
 let files: File[] = []
+let hasError = true
 const fileListResponse = await fetchFileList(noteId)
 
 if (fileListResponse && fileListResponse.status === 200) {
@@ -22,6 +24,8 @@ if (fileListResponse && fileListResponse.status === 200) {
 
   // Sort directories first
   files.sort((a, z) => (a.type === 'dir' && z.type !== 'dir' ? -1 : 1))
+} else {
+  hasError = true
 }
 ---
 
@@ -30,7 +34,19 @@ if (fileListResponse && fileListResponse.status === 200) {
   <p>EXPLORER</p>
 </span>
 {
-  files.length > 0 ? (
+  hasError ? (
+    <p class="p-2 text-sm italic">
+      Could not fetch file list.{' '}
+      <a
+        href={`${siteConfig.filesRepoUrl}/${noteId}`}
+        target="_blank"
+        class="underline"
+        rel="noopener noreferrer"
+      >
+        Browse directly on GitHub.
+      </a>
+    </p>
+  ) : files.length > 0 ? (
     <FileListing {files} />
   ) : (
     <p class="p-2 text-sm italic">No files for this note</p>

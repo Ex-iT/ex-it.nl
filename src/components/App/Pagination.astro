@@ -34,7 +34,7 @@ function getHref(index: number) {
     </li>
     {
       [...Array(page.lastPage).keys()].map((index) => (
-        <li class="flex rounded-xl bg-base transition-all font-bold">
+        <li class="hidden md:flex rounded-xl bg-base transition-all font-bold">
           <a
             href={getHref(index)}
             class:list={[
@@ -49,6 +49,12 @@ function getHref(index: number) {
         </li>
       ))
     }
+    <li
+      class="flex md:hidden justify-center items-center w-12 rounded-xl bg-base transition-all font-bold"
+    >
+      <span class="highlight-first-letter">{page.currentPage}</span
+      >&nbsp;/&nbsp;{page.lastPage}
+    </li>
     <li>
       <a
         href={page.url.next}
