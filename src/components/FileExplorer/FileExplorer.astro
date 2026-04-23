@@ -16,14 +16,20 @@ let files: File[] = []
 let hasError = false
 const fileListResponse = await fetchFileList(noteId)
 
-if (fileListResponse && fileListResponse.status === 200) {
-  files = (await fileListResponse.json()) ?? []
+if (fileListResponse) {
+  if (fileListResponse.status === 200) {
+    files = (await fileListResponse.json()) ?? []
 
-  // Remove index.md from the list
-  files = files.filter((file) => file.name !== 'index.md')
+    // Remove index.md from the list
+    files = files.filter((file) => file.name !== 'index.md')
 
-  // Sort directories first
-  files.sort((a, z) => (a.type === 'dir' && z.type !== 'dir' ? -1 : 1))
+    // Sort directories first
+    files.sort((a, z) => (a.type === 'dir' && z.type !== 'dir' ? -1 : 1))
+  } else if (fileListResponse.status === 404) {
+    files = []
+  } else {
+    hasError = true
+  }
 } else {
   hasError = true
 }
